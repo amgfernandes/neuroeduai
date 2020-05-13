@@ -18,18 +18,17 @@ subtitle = ""
   icon = "python"
   icon_pack = "fab"
   name = "Python"
-  <!-- #description = "90%" -->
+#  description = "90%" -->
 
 [[feature]]
-  icon = "laptop-code"
-  icon_pack = "fas"
-  name = "Machine Learning"
-  <!-- #description = "100%"   -->
+    icon = "laptop-code"
+    icon_pack = "fas"
+    name = "Machine Learning"
+#   description = "100%"   -->
 
-  [[feature]]
+[[feature]]
   icon = "brain"
   icon_pack = "fas"
   name = "Neuroscience"
-  <!-- description = "10%"  -->
-
+# description = "10%"  -->
 +++
