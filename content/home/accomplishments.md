@@ -21,24 +21,24 @@ date_format = "Jan 2006"
 [[item]]
   organization = "Coursera"
   organization_url = "https://www.coursera.org"
-  title = "Neural Networks and Deep Learning"
-  url = ""
-  certificate_url = "https://www.coursera.org"
-  date_start = "2018-10-01"
+  title = "Databases and SQL for Data Science"
+  url = "https://www.coursera.org/learn/sql-data-science"
+  certificate_url = "https://www.coursera.org/account/accomplishments/certificate/P6H52D9GEVQ7"
+  date_start = "2020-05-01"
   date_end = ""
-  description = ""
+  description = "Relational databases and SQL"
 
 [[item]]
-  organization = "edX"
-  organization_url = "https://www.edx.org"
-  title = "Blockchain Fundamentals"
-  url = "https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals"
-  certificate_url = "https://www.edx.org"
-  date_start = "2018-03-01"
+  organization = "Coursera"
+  organization_url = "https://www.coursera.org"
+  title = "Machine Learning with Python"
+  url = "https://www.coursera.org/learn/machine-learning-with-python"
+  certificate_url = "https://www.coursera.org/account/accomplishments/certificate/STWHQJZAUFHV"
+  date_start = "2020-03-01"
   date_end = ""
-  description = "Formulated informed blockchain models, hypotheses, and use cases."
-  
-[[item]]
+  description = "Applications of Machine Learning in different fields "
+
+<!-- [[item]]
   organization = "DataCamp"
   organization_url = "https://www.datacamp.com"
   title = "Object-Oriented Programming in R: S3 and R6 Course"
@@ -46,6 +46,6 @@ date_format = "Jan 2006"
   certificate_url = "https://www.datacamp.com"
   date_start = "2017-07-01"
   date_end = "2017-12-21"
-  description = ""
+  description = "" -->
 
 +++
