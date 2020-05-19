@@ -68,8 +68,6 @@ email: ""
 #- Researchers
 #- Visitors
 ---
-
-I am a Postdoctoral Researcher at the Max Planck Institute of Neurobiology, fascinated by the analysis of data to extract valuable insights and create knowledge.
-I believe that knowledge and education can empower people and will lead to a significant improvement in our world.
+<p style="text-align: justify;">I am a Postdoctoral Researcher at the Max Planck Institute of Neurobiology, fascinated by the analysis of data to extract valuable insights and create knowledge. I believe that knowledge and education empower people and improve our world.
 I am an experienced Neuroscientist using machine learning methods for the analysis of big data.
-I love teaching and to work in a team to solve complex questions.
+I love teaching and to work in a team to solve complex questions.</p>
