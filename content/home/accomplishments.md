@@ -5,7 +5,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 50  # Order that this section will appear.
 
-title = "Licenses & Certifications"
+title = "Accomplishment"
 subtitle = ""
 
 # Date format
@@ -29,12 +29,23 @@ date_format = "Jan 2006"
   description = "Relational databases and SQL"
 
 [[item]]
-  organization = "Coursera"
-  organization_url = "https://www.coursera.org"
-  title = "Machine Learning with Python"
-  url = "https://www.coursera.org/learn/machine-learning-with-python"
-  certificate_url = "https://www.coursera.org/account/accomplishments/certificate/STWHQJZAUFHV"
-  date_start = "2020-03-01"
+    organization = "Coursera"
+    organization_url = "https://www.coursera.org"
+    title = "Machine Learning with Python"
+    url = "https://www.coursera.org/learn/machine-learning-with-python"
+    certificate_url = "https://www.coursera.org/account/accomplishments/certificate/STWHQJZAUFHV"
+    date_start = "2020-03-01"
+    date_end = ""
+    description = "Applications of Machine Learning to data analysis"
+
+[[item]]
+  organization = "University of Freiburg"
+  organization_url = "https://www.uni-freiburg.de"
+  title = "Hans-Grisebach Award 2014"
+  url = "https://www.zuv.uni-freiburg.de/service/ehrungen-und-preise/freiburger-nachwuchsfoerderpreise/biologie/h-grisebach"
+  certificate_url = ""
+  date_start = "2014-10-22"
   date_end = ""
-  description = "Applications of Machine Learning in different fields "
+  description = "Outstanding dissertation in the field of biochemistry and molecular biology"
+
 +++
