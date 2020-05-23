@@ -1,10 +1,12 @@
 ---
+
 title: "Analysing behavioral data using unsupervised clustering"
 date: 2020-05-22
 layout: post
 draft: false #set to false to go live
-
+tags: ["clustering", "machine learning", "python"]
 ---
+
 Trying out unsupervised clustering on behavioral decisions of zebrafish when they are faced with two competing threatening stimuli. This data is related to the following publication:
 <a href="https://www.biorxiv.org/content/10.1101/598383v1"> Neuronal circuitry for stimulus selection in the visual system</a>.
 
