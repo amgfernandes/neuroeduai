@@ -53,6 +53,9 @@ social:
 - icon: github
   icon_pack: fab
   link: https://github.com/amgfernandes
+- icon: linkedin
+  icon_pack: fab
+  link: https://www.linkedin.com/in/miguel-fernandes-phd-a7b12477/
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -70,4 +73,4 @@ email: ""
 ---
 <p style="text-align: left;">I am an experienced Neuroscientist fascinated by the analysis of data to extract valuable insights and create knowledge.
 I believe that knowledge and education empower people and improve our world.
-I love teaching and to work in a team to solve complex questions.</p>
+I love teaching and working in a team to solve complex questions.</p>
