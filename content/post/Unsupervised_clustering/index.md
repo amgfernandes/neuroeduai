@@ -5,12 +5,13 @@ layout: post
 draft: false #set to false to go live
 
 ---
-Trying out unsupervised clustering
+Trying out unsupervised clustering on behavioral decisions of zebrafish when they are faced with two competing threatening stimuli. This data is related to the following publication:
+<a href="https://www.biorxiv.org/content/10.1101/598383v1"> Neuronal circuitry for stimulus selection in the visual system</a>.
 
 ## Repository Link
 <!-- https://github.com/amgfernandes/Behavioral_analysis/blob/master/Unsupervised_clustering -->
 
-<a href="https://github.com/amgfernandes/Behavioral_analysis/blob/master/Unsupervised_clustering/"> Clustering </a>
+<a href="https://github.com/amgfernandes/Behavioral_analysis/blob/master/Unsupervised_clustering/"> Repository Clustering </a>
 
 {{< figure src="looming.png" title="" lightbox="false" >}}
 ```python
