@@ -31,7 +31,7 @@ education:
   - course: PhD in Neuroscience
     institution: University of Freiburg
     year: 2013
-  - course: Licentiate in Biology
+  - course: Licentiate in Biology (equivalent to Master's degree)
     institution: University of Porto
     year: 2008
 
