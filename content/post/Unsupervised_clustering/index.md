@@ -13,7 +13,7 @@ Trying out unsupervised clustering on behavioral decisions of zebrafish when the
 ## Repository Link
 <!-- https://github.com/amgfernandes/Behavioral_analysis/blob/master/Unsupervised_clustering -->
 
-<a href="https://github.com/amgfernandes/Behavioral_analysis/blob/master/Unsupervised_clustering/"> Repository Clustering </a>
+<a href="https://github.com/amgfernandes/Behavioral_analysis/blob/master/Unsupervised_clustering/"> Unsupervised_clustering </a>
 
 {{< figure src="looming.png" title="" lightbox="false" >}}
 ```python
