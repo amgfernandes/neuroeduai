@@ -73,4 +73,6 @@ email: ""
 ---
 <p style="text-align: left;">I am an experienced Neuroscientist fascinated by the analysis of data to extract valuable insights and create knowledge.
 I believe that knowledge and education empower people and improve our world.
-I love teaching and working in a team to solve complex questions.</p>
+I love teaching and working in a team to solve complex questions.
+
+*“Education is the most powerful weapon which you can use to change the world.” -Nelson Mandela* </p>
