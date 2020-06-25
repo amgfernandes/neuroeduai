@@ -11,7 +11,6 @@ Trying out unsupervised clustering on behavioral decisions of zebrafish when the
 <a href="https://www.biorxiv.org/content/10.1101/598383v1"> Neuronal circuitry for stimulus selection in the visual system</a>.
 
 ## Repository Link
-<!-- https://github.com/amgfernandes/Behavioral_analysis/blob/master/Unsupervised_clustering -->
 
 <a href="https://github.com/amgfernandes/Behavioral_analysis/blob/master/Unsupervised_clustering/"> Unsupervised_clustering </a>
 
