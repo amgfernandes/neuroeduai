@@ -1,5 +1,4 @@
 ---
-
 title: "Analysing behavioral data using unsupervised clustering"
 date: 2020-05-22
 layout: post
@@ -7,8 +6,15 @@ draft: false #set to false to go live
 tags: ["clustering", "machine learning", "python"]
 ---
 
+**Can we use clustering to find meaningful insights when zebrafish are faced with two competing threatening stimuli?**
+
+**Answer: No. This approach does not reveal distinct response types.Clustering is NOT a good approach for this behavioral data. Boundaries seem arbitrary.**
+
+**See below Notebook or Repository link**
+
 Trying out unsupervised clustering on behavioral decisions of zebrafish when they are faced with two competing threatening stimuli. This data is related to the following publication:
 <a href="https://www.biorxiv.org/content/10.1101/598383v1"> Neuronal circuitry for stimulus selection in the visual system</a>.
+
 
 ## Repository Link
 
