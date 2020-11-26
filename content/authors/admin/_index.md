@@ -18,12 +18,13 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include neuroscience, education and artificial intelligence.
+bio: My interests include neuroscience, education, artificial intelligence and genetics.
 
 interests:
 - Neuroscience
 - Education
 - Artificial Intelligence
+- Genetics
 
 
 education:

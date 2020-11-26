@@ -15,10 +15,10 @@ subtitle = ""
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
 
 [[feature]]
-  icon = "python"
-  icon_pack = "fab"
-  name = "Python"
-#  description = "90%" -->
+  icon = "dna"
+  icon_pack = "fas"
+  name = "Genetics"
+# description = "10%"  -->
 
 [[feature]]
     icon = "laptop-code"
@@ -31,4 +31,7 @@ subtitle = ""
   icon_pack = "fas"
   name = "Neuroscience"
 # description = "10%"  -->
+
+
+
 +++
