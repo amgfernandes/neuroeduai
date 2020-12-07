@@ -265,6 +265,8 @@ plugins_js  = []
   api_key = ""
   zoom = 15
 
+media_dir = "img"
+
 ############################
 ## Marketing
 ############################
@@ -275,6 +277,17 @@ plugins_js  = []
 ############################
 ## Content Management System
 ############################
-[cms]
+
   # See https://sourcethemes.com/academic/docs/install/#install-with-web-browser
-  netlify_cms = true
+
+
+# PLACE THIS NEW [CMS] CONFIG SECTION AT THE END OF THE FILE
+  
+# Content Management System
+[cms]
+ # Enable the admin panel. See https://wowchemy.com/docs/install/
+ netlify_cms = true
+  
+# Icon Pack Extensions
+[icon.pack]
+ ai = true  # Enable the Academicons icon pack https://jpswalsh.github.io/academicons/
