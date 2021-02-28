@@ -10,11 +10,11 @@ authors:
 superuser: true
 
 # Role/position
-role: Neuroscientist
+role: Head of Image and Data Analysis Facility (Senior Data Scientist)
 
 # Organizations/Affiliations
 organizations:
-- name: Max Planck Institute of Neurobiology
+- name: DZNE
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
