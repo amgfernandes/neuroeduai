@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Head of Image and Data Analysis Facility (Senior Data Scientist)
+role: Head of the Image and Data Analysis Facility (Senior Data Scientist)
 
 # Organizations/Affiliations
 organizations:
