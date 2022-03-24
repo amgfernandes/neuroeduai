@@ -74,7 +74,7 @@ email: ""
 #- Researchers
 #- Visitors
 ---
-<p style="text-align: left;">I am an experienced Scientist fascinated by the analysis of data to extract valuable insights and create knowledge.
+<p style="text-align: left;">I am an experienced Data Scientist fascinated by the analysis of data to extract valuable insights and create knowledge.
 I believe that knowledge and education empower people and improve our world.
 I love teaching and working in a team to solve complex questions.
 
