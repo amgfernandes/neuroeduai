@@ -1,6 +1,6 @@
-# My personal website. Website is hosted on Github and build using the Hugo framework (static site generator written in Go).
+# My personal website. 
 
-See below for details
+## Website is hosted on Github and build using the Hugo framework (static site generator written in Go).See below for details
 
 
 <!--<p align="center"><a href="https://wowchemy.com" target="_blank" rel="noopener"><img src="https://wowchemy.com/img/logo_200px.png" alt="Wowchemy Website Builder"></a></p>-->
@@ -24,16 +24,12 @@ See below for details
 
 To help us develop this template and software sustainably under the MIT license, we ask all individuals and businesses that use it to help support its ongoing maintenance and development via sponsorship.
 
-### [❤️ Click here to unlock rewards with sponsorship](https://wowchemy.com/plans/)
 
 ## Ecosystem
 
 * **[Hugo Academic CLI](https://github.com/wowchemy/hugo-academic-cli/):** Automatically import academic publications from BibTeX
 * **[Hugo Assistant](https://github.com/sourcethemes/hugo-assistant):** Scripts to help migrate content to new versions of Hugo
 
-## Features
-
-[![Screenshot](https://raw.githubusercontent.com/wowchemy/wowchemy-hugo-modules/master/academic.png)](https://wowchemy.com)
 
 **Key features:**
 
