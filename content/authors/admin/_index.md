@@ -83,6 +83,7 @@ I am an experienced data scientist fascinated by the analysis of data, using AI/
 Currently, I am using AI tools to help people cure and treat neurodegenerative diseases like Alzheimer's disease, Parkinson’s disease, and Dementia.
 
 In addition, I love communicating with diverse audiences, teaching, and to work in a team to solve complex problems. I am also a strong supporter of open-source tools, accessible to people around the world to tackle their challenges.
+</p>
+<p>&nbsp;</p>
 
-
-**“Education is the most powerful weapon which you can use to change the world.” -Nelson Mandela** </p>
+***“Education is the most powerful weapon which you can use to change the world.” -Nelson Mandela*** </p>
