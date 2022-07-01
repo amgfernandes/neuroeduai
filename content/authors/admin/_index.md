@@ -21,11 +21,13 @@ organizations:
 bio: My interests include neuroscience, education, artificial intelligence and genetics.
 
 interests:
+- Healthcare
 - Neuroscience
 - Education
 - Data Science (AI/ML/DL)
 - Genetics
 - Life Sciences
+
 
 
 
@@ -74,8 +76,12 @@ email: ""
 #- Researchers
 #- Visitors
 ---
-<p style="text-align: left;">I am an experienced Data Scientist fascinated by the analysis of data to extract valuable insights and create knowledge.
-I believe that knowledge and education empower people and improve our world.
-I love teaching and working in a team to solve complex questions.
+<p style="text-align: left;">
 
-*“Education is the most powerful weapon which you can use to change the world.” -Nelson Mandela* </p>
+I am an experienced data scientist fascinated by the analysis of data, using AI/ML methods to gain valuable insights and improve decision-making. Aiming to empower people through knowledge!
+
+Currently, I am using AI tools to help people cure and treat neurodegenerative diseases like Alzheimer's disease, Parkinson’s disease, and Dementia.
+
+In addition, I love communicating with diverse audiences, teaching, and to work in a team to solve complex problems. I am also a strong supporter of open-source tools, accessible to people around the world to tackle their challenges.
+
+- *“Education is the most powerful weapon which you can use to change the world.” -Nelson Mandela* </p>
