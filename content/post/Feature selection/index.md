@@ -3,9 +3,14 @@ title: "Feature selection"
 date: 2022-09-08
 layout: post
 draft: false #set to false to go live
-tags: ["clustering", "linear regression", "python"]
+tags: ["genetic algorithms", "feature", "python"]
 ---
 
+**Using an available library for feature selection based on Genetic algorithm feature selection (sklearn-genetic-opt)**
+
+**Answer: The idea is to make it generic and easy to use with the terminal and with logging possibility. A GUI with Napari is planned as next project**
+
+**See below Repository link**
 
 
 ## Repository Link
@@ -13,7 +18,7 @@ tags: ["clustering", "linear regression", "python"]
 <a href="https://github.com/amgfernandes/GA_based_feature_selection"> Feature selection </a>
 
 
-G# GA_based_feature_selection
+# GA_based_feature_selection
 
 ### Genetic algorithms (GA) Feature Selection based on sklearn-genetic-opt 
 https://sklearn-genetic-opt.readthedocs.io/en/stable/index.html#sklearn-genetic-opt
