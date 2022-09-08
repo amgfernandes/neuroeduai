@@ -8,7 +8,7 @@ tags: ["genetic algorithms", "feature", "python"]
 
 **Using an available library for feature selection based on Genetic algorithm feature selection (sklearn-genetic-opt)**
 
-**Answer: The idea is to make it generic and easy to use with the terminal and with logging possibility. A GUI with Napari is planned as next project**
+The idea is to make it generic and easy to use with the terminal and with logging possibility. A GUI with Napari is planned as next project
 
 **See below Repository link**
 
