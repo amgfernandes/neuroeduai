@@ -1,5 +1,5 @@
 ---
-title: "Genetic algorithms (GA) Feature Selection based on sklearn-genetic-opt"
+title: "Feature selection"
 date: 2022-09-08
 layout: post
 draft: false #set to false to go live
