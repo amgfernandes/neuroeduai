@@ -78,7 +78,7 @@ email: ""
 
 I am an experienced data scientist fascinated by the analysis of data, using AI/ML methods to gain valuable insights and improve decision-making. Aiming to empower people through knowledge!
 
-Currently, I am using AI tools to help people get the best possible medical treatment for his/her health problem.
+Currently, I am using AI tools to help people get the best possible medical treatment.
 
 In addition, I love communicating with diverse audiences, teaching, and to work in a team to solve complex problems. I am also a strong supporter of open-source tools, accessible to people around the world to tackle their challenges.
 </p>
