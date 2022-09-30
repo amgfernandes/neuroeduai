@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Data Scientist at BetterDoc
+role: Senior Data Scientist at BetterDoc
 
 # Organizations/Affiliations
 organizations:
