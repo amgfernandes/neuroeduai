@@ -2,10 +2,15 @@
 
 ## Website is hosted on Github and build using the Hugo framework (static site generator written in Go).See below for details
 
+To use:
+- make changes 
+- run command `hugo server`
+- commit changes to repo
+
 
 <!--<p align="center"><a href="https://wowchemy.com" target="_blank" rel="noopener"><img src="https://wowchemy.com/img/logo_200px.png" alt="Wowchemy Website Builder"></a></p>-->
 
-# [Wowchemy](https://wowchemy.com): the website builder for [Hugo](https://gohugo.io)
+## [Wowchemy](https://wowchemy.com): the website builder for [Hugo](https://gohugo.io)
 
 ### The Page Builder to Easily Create Professional Websites ✏️ 📰 🚀
 
