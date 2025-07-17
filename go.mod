@@ -1,6 +1,6 @@
 module github.com/amgfernandes/neuroeduai
 
-go 1.24.3
+go 1.23
 
 require (
 	github.com/HugoBlox/hugo-blox-builder/modules/blox-bootstrap/v5 v5.9.7 // indirect
