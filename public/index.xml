@@ -1476,6 +1476,15 @@ This website is hosted on  &lt;a href=&#34;https://github.com/&#34;&gt;Github&lt
     </item>
     
     <item>
+      <title>Terms</title>
+      <link>http://localhost:1313/terms/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/terms/</guid>
+      <description>&lt;p&gt;Add your terms here and set &lt;code&gt;draft: false&lt;/code&gt; to publish it. Otherwise, delete this file if you don&amp;rsquo;t need it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Projections of the Diencephalospinal Dopaminergic System to Peripheral Sense Organs in Larval Zebrafish (Danio rerio)</title>
       <link>http://localhost:1313/publication/haehnel-taguchi-projections-2018/</link>
       <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
