@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bioimage Analysis | Neuroeduai</title>
+    <link>http://localhost:1313/tag/bioimage-analysis/</link>
+      <atom:link href="http://localhost:1313/tag/bioimage-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <description>Bioimage Analysis</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 08 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png</url>
+      <title>Bioimage Analysis</title>
+      <link>http://localhost:1313/tag/bioimage-analysis/</link>
+    </image>
+    
+    <item>
+      <title>Introduction to Bioimage analysis for Master of Science in Neurosciences</title>
+      <link>http://localhost:1313/post/introduction-to-bioimage-analysis-/</link>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/introduction-to-bioimage-analysis-/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Introduction to Bioimage analysis for Master of Science (M.Sc.) in Neurosciences.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;See repository for details&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;See below Repository link&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;repository-link&#34;&gt;Repository Link&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/amgfernandes/FIJI_Clij2_GPU_Weka_ML_course&#34;&gt; Introduction to Bioimage analysis &lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;fiji-clij2-gpu-weka-ml-course&#34;&gt;FIJI Clij2 GPU Weka ML course&lt;/h1&gt;
+&lt;p&gt;Introduction to Bioimage analysis for Master of Science (M.Sc.) in Neurosciences&lt;/p&gt;
+&lt;h2 id=&#34;in-preparation-for-the-course-please-install-in-advance&#34;&gt;In preparation for the course please install in advance:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;fiji&#34;&gt;FIJI: &lt;a href=&#34;https://imagej.net/software/fiji/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://imagej.net/software/fiji/&lt;/a&gt;&lt;/h3&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;pythonanaconda-installation-optional&#34;&gt;Python/Anaconda installation (optional): &lt;a href=&#34;https://docs.anaconda.com/anaconda/install/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.anaconda.com/anaconda/install/&lt;/a&gt;&lt;/h3&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;download-or-use-git-to-clone-this-repository&#34;&gt;Download or use Git to clone this repository:&lt;/h3&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can use &lt;code&gt;Download ZIP&lt;/code&gt; or Git: &lt;code&gt;git clone https://github.com/amgfernandes/FIJI_Clij2_GPU_Weka_ML_course.git&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;for-the-python-part&#34;&gt;For the python part:&lt;/h3&gt;
+&lt;p&gt;You can create a new environment called &lt;code&gt;bioimage&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd python_visualization
+
+conda create --name bioimage -y
+
+conda activate bioimage
+
+conda install pip -y
+
+pip install -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And add your new env kernel to your jupyter&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda install -c anaconda ipykernel
+
+python -m ipykernel install --user --name=bioimage
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;bioimage-analysis-recommended-reading-and-viewing&#34;&gt;Bioimage Analysis: Recommended Reading and Viewing:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Python: Basics for Data Scientists &amp;ndash;&amp;gt; &lt;a href=&#34;https://github.com/FabrizioMusacchio/Python_Course&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/FabrizioMusacchio/Python_Course&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Introduction to Bioimage Analysis &amp;ndash;&amp;gt; &lt;a href=&#34;https://bioimagebook.github.io/README.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://bioimagebook.github.io/README.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Introduction to Bioimage Analysis video &amp;ndash;&amp;gt; &lt;a href=&#34;https://www.ibiology.org/techniques/introduction-to-bioimage-analysis/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.ibiology.org/techniques/introduction-to-bioimage-analysis/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Bioimage analysis for computational biology &amp;ndash;&amp;gt; &lt;a href=&#34;https://github.com/BiAPoL/Bio-image_Analysis_with_Python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/BiAPoL/Bio-image_Analysis_with_Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Introduction to Image Analysis with FIJI &amp;ndash;&amp;gt; &lt;a href=&#34;https://www.crick.ac.uk/sites/default/files/2018-07/Introduction%20to%20image%20analysis%20with%20FIJI_David%20Berry_TheFrancisCrickInstitute_0.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.crick.ac.uk/sites/default/files/2018-07/Introduction%20to%20image%20analysis%20with%20FIJI_David%20Berry_TheFrancisCrickInstitute_0.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ML for Bioimage analysis &amp;ndash;&amp;gt; &lt;a href=&#34;https://montpellierressourcesimagerie.github.io/mri-workshop-machine-learning/slides_day1.revealjs.htm#/3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://montpellierressourcesimagerie.github.io/mri-workshop-machine-learning/slides_day1.revealjs.htm#/3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

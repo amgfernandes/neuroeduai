@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Erin Beddows | Neuroeduai</title>
+    <link>http://localhost:1313/author/erin-beddows/</link>
+      <atom:link href="http://localhost:1313/author/erin-beddows/index.xml" rel="self" type="application/rss+xml" />
+    <description>Erin Beddows</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Sep 2013 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png</url>
+      <title>Erin Beddows</title>
+      <link>http://localhost:1313/author/erin-beddows/</link>
+    </image>
+    
+    <item>
+      <title>Orthopedia Transcription Factor otpa and otpb Paralogous Genes Function during Dopaminergic and Neuroendocrine Cell Specification in Larval Zebrafish</title>
+      <link>http://localhost:1313/publication/fernandes-orthopedia-2013/</link>
+      <pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/fernandes-orthopedia-2013/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

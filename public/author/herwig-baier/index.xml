@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Herwig Baier | Neuroeduai</title>
+    <link>http://localhost:1313/author/herwig-baier/</link>
+      <atom:link href="http://localhost:1313/author/herwig-baier/index.xml" rel="self" type="application/rss+xml" />
+    <description>Herwig Baier</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png</url>
+      <title>Herwig Baier</title>
+      <link>http://localhost:1313/author/herwig-baier/</link>
+    </image>
+    
+    <item>
+      <title>Molecular classification of zebrafish retinal ganglion cells links genes to cell types to behavior</title>
+      <link>http://localhost:1313/publication/kolsch-molecular-2020/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/kolsch-molecular-2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neural circuitry for stimulus selection in the zebrafish visual system</title>
+      <link>http://localhost:1313/publication/fernandes-neural-2020/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/fernandes-neural-2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deconstructing Hunting Behavior Reveals a Tightly Coupled Stimulus-Response Loop</title>
+      <link>http://localhost:1313/publication/mearns-deconstructing-2020/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/mearns-deconstructing-2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Cellular-Resolution Atlas of the Larval Zebrafish Brain</title>
+      <link>http://localhost:1313/publication/kunst-cellular-resolution-2019/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/kunst-cellular-resolution-2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Potassium channel-based optogenetic silencing</title>
+      <link>http://localhost:1313/publication/bernal-sierra-potassium-2018/</link>
+      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/bernal-sierra-potassium-2018/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genetic targeting and anatomical registration of neuronal populations in the zebrafish brain with a new set of BAC transgenic tools</title>
+      <link>http://localhost:1313/publication/forster-genetic-2017/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/forster-genetic-2017/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

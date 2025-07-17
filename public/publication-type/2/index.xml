@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2 | Neuroeduai</title>
+    <link>http://localhost:1313/publication-type/2/</link>
+      <atom:link href="http://localhost:1313/publication-type/2/index.xml" rel="self" type="application/rss+xml" />
+    <description>2</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png</url>
+      <title>2</title>
+      <link>http://localhost:1313/publication-type/2/</link>
+    </image>
+    
+    <item>
+      <title>Molecular classification of zebrafish retinal ganglion cells links genes to cell types to behavior</title>
+      <link>http://localhost:1313/publication/kolsch-molecular-2020/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/kolsch-molecular-2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neural circuitry for stimulus selection in the zebrafish visual system</title>
+      <link>http://localhost:1313/publication/fernandes-neural-2020/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/fernandes-neural-2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deconstructing Hunting Behavior Reveals a Tightly Coupled Stimulus-Response Loop</title>
+      <link>http://localhost:1313/publication/mearns-deconstructing-2020/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/mearns-deconstructing-2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Cellular-Resolution Atlas of the Larval Zebrafish Brain</title>
+      <link>http://localhost:1313/publication/kunst-cellular-resolution-2019/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/kunst-cellular-resolution-2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Potassium channel-based optogenetic silencing</title>
+      <link>http://localhost:1313/publication/bernal-sierra-potassium-2018/</link>
+      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/bernal-sierra-potassium-2018/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projections of the Diencephalospinal Dopaminergic System to Peripheral Sense Organs in Larval Zebrafish (Danio rerio)</title>
+      <link>http://localhost:1313/publication/haehnel-taguchi-projections-2018/</link>
+      <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/haehnel-taguchi-projections-2018/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genetic targeting and anatomical registration of neuronal populations in the zebrafish brain with a new set of BAC transgenic tools</title>
+      <link>http://localhost:1313/publication/forster-genetic-2017/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/forster-genetic-2017/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Enlightening the brain: Linking deep brain photoreception with behavior and physiology: Insights &amp; Perspectives</title>
+      <link>http://localhost:1313/publication/fernandes-enlightening-2013/</link>
+      <pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/fernandes-enlightening-2013/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orthopedia Transcription Factor otpa and otpb Paralogous Genes Function during Dopaminergic and Neuroendocrine Cell Specification in Larval Zebrafish</title>
+      <link>http://localhost:1313/publication/fernandes-orthopedia-2013/</link>
+      <pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/fernandes-orthopedia-2013/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Brain Photoreceptors Control Light-Seeking Behavior in Zebrafish Larvae</title>
+      <link>http://localhost:1313/publication/fernandes-deep-2012/</link>
+      <pubDate>Thu, 01 Nov 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/fernandes-deep-2012/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Y Chromosomal Variation Tracks the Evolution of Mating Systems in Chimpanzee and Bonobo</title>
+      <link>http://localhost:1313/publication/schaller-y-2010/</link>
+      <pubDate>Wed, 01 Sep 2010 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/schaller-y-2010/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Evolutionary analysis of the highly dynamic CHEK2 duplicon in anthropoids</title>
+      <link>http://localhost:1313/publication/munch-evolutionary-2008/</link>
+      <pubDate>Tue, 01 Jan 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/munch-evolutionary-2008/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

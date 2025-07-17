@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: July 17, 2025 --><html lang="en-us" >
+
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Hugo Blox Builder 5.9.7" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" disabled>
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" >
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Miguel Fernandes" />
+
+
+
+
+
+  
+
+<meta name="description" content="Introduction to Bioimage analysis for Master of Science (M.Sc.) in Neurosciences.
+See repository for details
+See below Repository link
+Repository Link
+ Introduction to Bioimage analysis 
+FIJI Clij2 GPU Weka ML course
+Introduction to Bioimage analysis for Master of Science (M.Sc.) in Neurosciences" />
+
+
+
+<link rel="alternate" hreflang="en-us" href="http://localhost:1313/post/introduction-to-bioimage-analysis-/" />
+<link rel="canonical" href="http://localhost:1313/post/introduction-to-bioimage-analysis-/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hu_be91e6458e592ec9.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hu_f8cae1f2dac4936d.png" />
+
+<meta name="theme-color" content="#bbdefb" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:image" content="http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png" />
+
+
+
+  
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Neuroeduai" />
+<meta property="og:url" content="http://localhost:1313/post/introduction-to-bioimage-analysis-/" />
+<meta property="og:title" content="Introduction to Bioimage analysis for Master of Science in Neurosciences | Neuroeduai" />
+<meta property="og:description" content="Introduction to Bioimage analysis for Master of Science (M.Sc.) in Neurosciences.
+See repository for details
+See below Repository link
+Repository Link
+ Introduction to Bioimage analysis 
+FIJI Clij2 GPU Weka ML course
+Introduction to Bioimage analysis for Master of Science (M.Sc.) in Neurosciences" /><meta property="og:image" content="http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2022-09-08T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2022-09-08T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/post/introduction-to-bioimage-analysis-/"
+  },
+  "headline": "Introduction to Bioimage analysis for Master of Science in Neurosciences",
+  
+  "datePublished": "2022-09-08T00:00:00Z",
+  "dateModified": "2022-09-08T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Miguel Fernandes"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Neuroeduai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/media/icon_hu_cf2b4812c4b4e39e.png"
+    }
+  },
+  "description": "\u003cp\u003e\u003cstrong\u003eIntroduction to Bioimage analysis for Master of Science (M.Sc.) in Neurosciences.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eSee repository for details\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSee below Repository link\u003c/strong\u003e\u003c/p\u003e\n\u003ch2 id=\"repository-link\"\u003eRepository Link\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/amgfernandes/FIJI_Clij2_GPU_Weka_ML_course\"\u003e Introduction to Bioimage analysis \u003c/a\u003e\u003c/p\u003e\n\u003ch1 id=\"fiji-clij2-gpu-weka-ml-course\"\u003eFIJI Clij2 GPU Weka ML course\u003c/h1\u003e\n\u003cp\u003eIntroduction to Bioimage analysis for Master of Science (M.Sc.) in Neurosciences\u003c/p\u003e"
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Introduction to Bioimage analysis for Master of Science in Neurosciences | Neuroeduai</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark " data-wc-page-id="8ddcb272faead056a2afbab64ceda52b" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.js"></script>
+
+  
+
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Neuroeduai</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Neuroeduai</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#posts"><span>Posts</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#publications"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#contact"><span>Contact</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/files/cv.pdf"><span>CV</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Introduction to Bioimage analysis for Master of Science in Neurosciences</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Sep 8, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p><strong>Introduction to Bioimage analysis for Master of Science (M.Sc.) in Neurosciences.</strong></p>
+<p>See repository for details</p>
+<p><strong>See below Repository link</strong></p>
+<h2 id="repository-link">Repository Link</h2>
+<p><a href="https://github.com/amgfernandes/FIJI_Clij2_GPU_Weka_ML_course"> Introduction to Bioimage analysis </a></p>
+<h1 id="fiji-clij2-gpu-weka-ml-course">FIJI Clij2 GPU Weka ML course</h1>
+<p>Introduction to Bioimage analysis for Master of Science (M.Sc.) in Neurosciences</p>
+<h2 id="in-preparation-for-the-course-please-install-in-advance">In preparation for the course please install in advance:</h2>
+<ul>
+<li>
+<h3 id="fiji">FIJI: <a href="https://imagej.net/software/fiji/" target="_blank" rel="noopener">https://imagej.net/software/fiji/</a></h3>
+</li>
+<li>
+<h3 id="pythonanaconda-installation-optional">Python/Anaconda installation (optional): <a href="https://docs.anaconda.com/anaconda/install/" target="_blank" rel="noopener">https://docs.anaconda.com/anaconda/install/</a></h3>
+</li>
+<li>
+<h3 id="download-or-use-git-to-clone-this-repository">Download or use Git to clone this repository:</h3>
+</li>
+</ul>
+<p>You can use <code>Download ZIP</code> or Git: <code>git clone https://github.com/amgfernandes/FIJI_Clij2_GPU_Weka_ML_course.git</code></p>
+<h3 id="for-the-python-part">For the python part:</h3>
+<p>You can create a new environment called <code>bioimage</code>:</p>
+<pre><code>cd python_visualization
+
+conda create --name bioimage -y
+
+conda activate bioimage
+
+conda install pip -y
+
+pip install -r requirements.txt
+</code></pre>
+<p>And add your new env kernel to your jupyter</p>
+<pre><code>conda install -c anaconda ipykernel
+
+python -m ipykernel install --user --name=bioimage
+</code></pre>
+<h2 id="bioimage-analysis-recommended-reading-and-viewing">Bioimage Analysis: Recommended Reading and Viewing:</h2>
+<ul>
+<li>Python: Basics for Data Scientists &ndash;&gt; <a href="https://github.com/FabrizioMusacchio/Python_Course" target="_blank" rel="noopener">https://github.com/FabrizioMusacchio/Python_Course</a></li>
+<li>Introduction to Bioimage Analysis &ndash;&gt; <a href="https://bioimagebook.github.io/README.html" target="_blank" rel="noopener">https://bioimagebook.github.io/README.html</a></li>
+<li>Introduction to Bioimage Analysis video &ndash;&gt; <a href="https://www.ibiology.org/techniques/introduction-to-bioimage-analysis/" target="_blank" rel="noopener">https://www.ibiology.org/techniques/introduction-to-bioimage-analysis/</a></li>
+<li>Bioimage analysis for computational biology &ndash;&gt; <a href="https://github.com/BiAPoL/Bio-image_Analysis_with_Python" target="_blank" rel="noopener">https://github.com/BiAPoL/Bio-image_Analysis_with_Python</a></li>
+<li>Introduction to Image Analysis with FIJI &ndash;&gt; <a href="https://www.crick.ac.uk/sites/default/files/2018-07/Introduction%20to%20image%20analysis%20with%20FIJI_David%20Berry_TheFrancisCrickInstitute_0.pdf" target="_blank" rel="noopener">https://www.crick.ac.uk/sites/default/files/2018-07/Introduction%20to%20image%20analysis%20with%20FIJI_David%20Berry_TheFrancisCrickInstitute_0.pdf</a></li>
+<li>ML for Bioimage analysis &ndash;&gt; <a href="https://montpellierressourcesimagerie.github.io/mri-workshop-machine-learning/slides_day1.revealjs.htm#/3" target="_blank" rel="noopener">https://montpellierressourcesimagerie.github.io/mri-workshop-machine-learning/slides_day1.revealjs.htm#/3</a></li>
+</ul>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/bioimage-analysis/">Bioimage Analysis</a>
+  
+  <a class="badge badge-light" href="/tag/python/">Python</a>
+  
+</div>
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fintroduction-to-bioimage-analysis-%2F&amp;text=Introduction&#43;to&#43;Bioimage&#43;analysis&#43;for&#43;Master&#43;of&#43;Science&#43;in&#43;Neurosciences" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fintroduction-to-bioimage-analysis-%2F&amp;t=Introduction&#43;to&#43;Bioimage&#43;analysis&#43;for&#43;Master&#43;of&#43;Science&#43;in&#43;Neurosciences" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a href="mailto:?subject=Introduction%20to%20Bioimage%20analysis%20for%20Master%20of%20Science%20in%20Neurosciences&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fintroduction-to-bioimage-analysis-%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fintroduction-to-bioimage-analysis-%2F&amp;title=Introduction&#43;to&#43;Bioimage&#43;analysis&#43;for&#43;Master&#43;of&#43;Science&#43;in&#43;Neurosciences" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Introduction&#43;to&#43;Bioimage&#43;analysis&#43;for&#43;Master&#43;of&#43;Science&#43;in&#43;Neurosciences%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fintroduction-to-bioimage-analysis-%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fintroduction-to-bioimage-analysis-%2F&amp;title=Introduction&#43;to&#43;Bioimage&#43;analysis&#43;for&#43;Master&#43;of&#43;Science&#43;in&#43;Neurosciences" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="http://localhost:1313/"><img class="avatar mr-3 avatar-circle" src="/author/miguel-fernandes/avatar_hu_d9d2dca0deaf82ab.jpg" alt="Miguel Fernandes"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="http://localhost:1313/">Miguel Fernandes</a></h5>
+      <h6 class="card-subtitle">Senior Data Scientist at BetterDoc</h6>
+      <p class="card-text">My interests include neuroscience, education, artificial intelligence and genetics.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=K8jP3tUAAAAJ&amp;hl=de" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/amgfernandes" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/amgfernandes/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+<p class="powered-by">
+  
+  <a href="/privacy/">Privacy Policy</a>
+  
+  
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+<script src="/en/js/wowchemy.min.js"></script>
+
+
+
+
+
+
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <pre><code></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/wowchemy-publication.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

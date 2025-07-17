@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Joseph C. Donovan | Neuroeduai</title>
+    <link>http://localhost:1313/author/joseph-c.-donovan/</link>
+      <atom:link href="http://localhost:1313/author/joseph-c.-donovan/index.xml" rel="self" type="application/rss+xml" />
+    <description>Joseph C. Donovan</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png</url>
+      <title>Joseph C. Donovan</title>
+      <link>http://localhost:1313/author/joseph-c.-donovan/</link>
+    </image>
+    
+    <item>
+      <title>Neural circuitry for stimulus selection in the zebrafish visual system</title>
+      <link>http://localhost:1313/publication/fernandes-neural-2020/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/fernandes-neural-2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deconstructing Hunting Behavior Reveals a Tightly Coupled Stimulus-Response Loop</title>
+      <link>http://localhost:1313/publication/mearns-deconstructing-2020/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/mearns-deconstructing-2020/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

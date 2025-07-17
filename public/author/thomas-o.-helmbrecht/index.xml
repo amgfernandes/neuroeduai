@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Thomas O. Helmbrecht | Neuroeduai</title>
+    <link>http://localhost:1313/author/thomas-o.-helmbrecht/</link>
+      <atom:link href="http://localhost:1313/author/thomas-o.-helmbrecht/index.xml" rel="self" type="application/rss+xml" />
+    <description>Thomas O. Helmbrecht</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png</url>
+      <title>Thomas O. Helmbrecht</title>
+      <link>http://localhost:1313/author/thomas-o.-helmbrecht/</link>
+    </image>
+    
+    <item>
+      <title>Molecular classification of zebrafish retinal ganglion cells links genes to cell types to behavior</title>
+      <link>http://localhost:1313/publication/kolsch-molecular-2020/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/kolsch-molecular-2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neural circuitry for stimulus selection in the zebrafish visual system</title>
+      <link>http://localhost:1313/publication/fernandes-neural-2020/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/fernandes-neural-2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genetic targeting and anatomical registration of neuronal populations in the zebrafish brain with a new set of BAC transgenic tools</title>
+      <link>http://localhost:1313/publication/forster-genetic-2017/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/forster-genetic-2017/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

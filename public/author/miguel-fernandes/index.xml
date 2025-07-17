@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Miguel Fernandes | Neuroeduai</title>
+    <link>http://localhost:1313/author/miguel-fernandes/</link>
+      <atom:link href="http://localhost:1313/author/miguel-fernandes/index.xml" rel="self" type="application/rss+xml" />
+    <description>Miguel Fernandes</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://localhost:1313/author/miguel-fernandes/avatar_hu_d9d2dca0deaf82ab.jpg</url>
+      <title>Miguel Fernandes</title>
+      <link>http://localhost:1313/author/miguel-fernandes/</link>
+    </image>
+    
+    <item>
+      <title>Miguel Fernandes</title>
+      <link>http://localhost:1313/author/miguel-fernandes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/author/miguel-fernandes/</guid>
+      <description>&lt;p style=&#34;text-align: left;&#34;&gt;
+&lt;p&gt;I am an experienced data scientist fascinated by the analysis of data, using AI/ML methods to gain valuable insights and improve decision-making. Aiming to empower people through knowledge!&lt;/p&gt;
+&lt;p&gt;Currently, I am using AI tools to help people get the best possible medical treatment.&lt;/p&gt;
+&lt;p&gt;In addition, I love communicating with diverse audiences, teaching, and to work in a team to solve complex problems. I am also a strong supporter of open-source tools, accessible to people around the world to tackle their challenges.&lt;/p&gt;
+&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;“Education is the most powerful weapon which you can use to change the world.” -Nelson Mandela&lt;/strong&gt;&lt;/em&gt; &lt;/p&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

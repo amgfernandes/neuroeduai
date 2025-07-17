@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Marco Dal Maschio | Neuroeduai</title>
+    <link>http://localhost:1313/author/marco-dal-maschio/</link>
+      <atom:link href="http://localhost:1313/author/marco-dal-maschio/index.xml" rel="self" type="application/rss+xml" />
+    <description>Marco Dal Maschio</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png</url>
+      <title>Marco Dal Maschio</title>
+      <link>http://localhost:1313/author/marco-dal-maschio/</link>
+    </image>
+    
+    <item>
+      <title>Neural circuitry for stimulus selection in the zebrafish visual system</title>
+      <link>http://localhost:1313/publication/fernandes-neural-2020/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/fernandes-neural-2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Cellular-Resolution Atlas of the Larval Zebrafish Brain</title>
+      <link>http://localhost:1313/publication/kunst-cellular-resolution-2019/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/kunst-cellular-resolution-2019/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

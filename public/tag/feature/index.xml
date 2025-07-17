@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Feature | Neuroeduai</title>
+    <link>http://localhost:1313/tag/feature/</link>
+      <atom:link href="http://localhost:1313/tag/feature/index.xml" rel="self" type="application/rss+xml" />
+    <description>Feature</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 08 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png</url>
+      <title>Feature</title>
+      <link>http://localhost:1313/tag/feature/</link>
+    </image>
+    
+    <item>
+      <title>Feature selection</title>
+      <link>http://localhost:1313/post/feature-selection/</link>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/feature-selection/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Using an available library for feature selection based on Genetic algorithm feature selection (sklearn-genetic-opt)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The idea is to make it generic and easy to use with the terminal and with logging possibility. A GUI with Napari is planned as next project&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;See below Repository link&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;repository-link&#34;&gt;Repository Link&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/amgfernandes/GA_based_feature_selection&#34;&gt; Feature selection &lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;ga_based_feature_selection&#34;&gt;GA_based_feature_selection&lt;/h1&gt;
+&lt;h3 id=&#34;genetic-algorithms-ga-feature-selection-based-on-sklearn-genetic-opt&#34;&gt;Genetic algorithms (GA) Feature Selection based on sklearn-genetic-opt&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://sklearn-genetic-opt.readthedocs.io/en/stable/index.html#sklearn-genetic-opt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://sklearn-genetic-opt.readthedocs.io/en/stable/index.html#sklearn-genetic-opt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Parser for command-line options is implemented&lt;/p&gt;
+&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;
+&lt;p&gt;Example with new environment named &lt;code&gt;feature_selection&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda create -n feature_selection -y
+
+conda activate feature_selection
+
+conda install pip -y
+
+pip install -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Script: GA_based_selection.py&lt;/p&gt;
+&lt;p&gt;Run in the terminal:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;For help:
+&lt;code&gt;python GA_based_selection.py -h&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run with:
+&lt;code&gt;python GA_based_selection.py&lt;/code&gt; with the appropriate arguments&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python GA_based_selection.py -g 5 -p 10 -c 0.2 -m 12
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;arguments&#34;&gt;Arguments:&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;&#39;--generations&#39;, &#39;-g&#39;, default=5
+&#39;--population_size&#39;, &#39;-p&#39;, default=8
+&#39;--crossover_probability&#39;, &#39;-c&#39;, default=0.1
+&#39;--max_features&#39;, &#39;-m&#39;, default=10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;notes&#34;&gt;Notes:&lt;/h3&gt;
+&lt;p&gt;A log file and csv files are generated with parameters and selected features. Some plots for evaluation are also created.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

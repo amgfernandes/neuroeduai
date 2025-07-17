@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clustering | Neuroeduai</title>
+    <link>http://localhost:1313/tag/clustering/</link>
+      <atom:link href="http://localhost:1313/tag/clustering/index.xml" rel="self" type="application/rss+xml" />
+    <description>Clustering</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 25 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png</url>
+      <title>Clustering</title>
+      <link>http://localhost:1313/tag/clustering/</link>
+    </image>
+    
+    <item>
+      <title>Imaging analysis of neuronal activity</title>
+      <link>http://localhost:1313/post/neuronal_imaging/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/neuronal_imaging/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Can we find identify functionally distinct neurons by using clustering and linear regression?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Answer: Yes. This approach reveals functionally distinct neuronal classes. See below Notebook or Repository link&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;repository-link&#34;&gt;Repository Link&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/amgfernandes/Imaging_analysis&#34;&gt; Neuronal imaging &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Brief description of the approach to answer the question:&lt;/p&gt;
+&lt;p&gt;Inspired by Miri et al., 2011, a regressor-based ROI analysis of the imaging data was performed.&lt;/p&gt;
+&lt;p&gt;Regressors are generated with time series that are set to zero for all time points except the time points of stimulation, which are set to one (visual stimuli in this case are Prey-like, Looming and Dimming). The regressors are then convolved with a kernel describing the GCaMP response function.&lt;/p&gt;
+&lt;p&gt;A linear regression approach (using Python scikit-learn) was used to select neurons, removing neurons with activity not locked to stimulus presentation (spontaneously active).&lt;/p&gt;
+&lt;p&gt;Extracted neurons were clustered using hierarchical clustering (agglomerative approach with Python scipy.cluster.hierarchy.linkage) for visualization of response types.&lt;/p&gt;
+&lt;p&gt;The maximum score of either the prey-like stimuli (nasalward and temporalward), looming or dimming stimuli was used to assign ROIs to specific response types.&lt;/p&gt;
+&lt;p&gt;References:&lt;/p&gt;
+&lt;p&gt;Miri, A., Daie, K., Burdine, R.D., Aksay, E., and Tank, D.W. (2011). Regression-based identification of behavior-encoding neurons during large-scale optical imaging of neural activity at cellular resolution. J. Neurophysiol. 105, 964–980.&lt;/p&gt;
+&lt;p&gt;António M. Fernandes, Johannes Larsch, Joseph C. Donovan, Thomas O. Helmbrecht, Duncan Mearns, Yvonne Kölsch, Marco Dal Maschio, Herwig Baier bioRxiv 598383; doi: &lt;a href=&#34;https://doi.org/10.1101/598383&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://doi.org/10.1101/598383&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Related to Fernandes et. al 2019:
+&lt;a href=&#34;https://www.biorxiv.org/content/10.1101/598383v1&#34;&gt; Neuronal circuitry for stimulus selection in the visual system&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Some of the helper functions were written with the help of Joe Donovan (&lt;a href=&#34;https://github.com/joe311%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/joe311)&lt;/a&gt;, Vilim Štih(&lt;a href=&#34;https://github.com/vilim&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/vilim&lt;/a&gt;) and Thomas Helmbrecht.&lt;/p&gt;
+&lt;hr&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;__author__ = &#39;Fernandes&#39;
+%load_ext autoreload
+%autoreload 2
+###################### IMPORT LIBRARIES################################ &#39;&#39;&#39;
+
+import os
+from Miguel_load_exp_Femtonics_python3 import *
+import matplotlib.pyplot as plt
+import numpy as np
+from filepicker_python3 import *
+import shelve
+import time
+import seaborn as sns
+import pickle
+import sys
+from sklearn import linear_model, metrics  
+from filepicker_python3 import pickfiles
+from ipywidgets import interact
+from helper_functions_imaging import *
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;&#39;&#39;Region of sensor used (GCaMP)&#39;&#39;&#39;
+GCaMP = &#39;gcamp6s&#39;
+
+
+&#39;&#39;&#39;Region of the brain imaged&#39;&#39;&#39;
+regions=[&#39;right_tectum&#39;] #can run over multiple regions
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;&#39;&#39; ###################### Loading The Files ####################### &#39;&#39;&#39;
+reg_path=(&#39;/Users/fernandes/Dropbox (Personal)/Github_Migas/Neuronal_imaging/example_ROIs.p&#39;)
+print (reg_path)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;/Users/fernandes/Dropbox (Personal)/Github_Migas/Neuronal_imaging/example_ROIs.p
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;for region in regions:
+
+    &#39;&#39;&#39;Load files&#39;&#39;&#39;
+    print (region)
+    print (&#39;Loading...&#39;)
+    tload1 = time.time()
+    Exp_MF = load_experiment_w_pickle_new_femtonics_2019(reg_path, corrected=False)
+    tload2 = time.time()
+    tload = tload2 - tload1
+    print (&#39;Done - Time for Image Loading:&#39;, tload)
+    print (&#39;Image - Dimensions:&#39;, np.shape(Exp_MF.images))
+    try:
+        filename = Exp_MF.metadata[&#39;Experiment code&#39;]+&#39;_&#39;+Exp_MF.metadata[&#39;Fish name&#39;]+&#39;_&#39;+Exp_MF.metadata[&#39;Recording name&#39;]+&#39;_&#39;+Exp_MF.metadata[&#39;Visual Stim&#39;]
+    except:
+        filename = Exp_MF.metadata[&#39;Experiment code&#39;]+&#39;_&#39;+Exp_MF.metadata[&#39;Fish name&#39;]+&#39;_&#39;+Exp_MF.metadata[&#39;Recording name&#39;]+&#39;_&#39;+Exp_MF.metadata[&#39;Visual Stimulation&#39;]
+    filename_dir = os.path.dirname(reg_path) +&#39;/&#39;+ filename
+
+    &#39;&#39;&#39;Take shelve file with extracted ROIs&#39;&#39;&#39;
+    curr_path=str(os.path.dirname(reg_path))
+    os.chdir(curr_path)
+    file_shelve = os.path.dirname(reg_path) + &#39;/&#39; + Exp_MF.metadata[&#39;Recording name&#39;].replace(&amp;quot;M&amp;quot;, &amp;quot;F&amp;quot;)+&#39;_UGf_ROIs&#39;+&#39;_&#39;+ str(region)+&#39;.shv&#39;
+    shelvename = file_shelve
+
+    analysed_shv = shelve.open(os.path.basename(os.path.normpath(file_shelve)), protocol=2)
+
+    ROI_settings = analysed_shv[&#39;settings&#39;] #if shelve cannot be read pass everything and move on to next file
+
+    metadata = Exp_MF.metadata #take metadata
+    protocol = Exp_MF.stimuli
+
+    frame_rate = float(1 / Exp_MF.dt)
+
+    &#39;&#39;&#39;which GCaMP used?&#39;&#39;&#39;
+    if GCaMP == &#39;gcamp6s&#39;:
+        print (&#39;GCamP6s used&#39;)
+        exp_decay_kernel = Exp_MF.exp_decay_kernel_g6s()
+    if GCaMP == &#39;gcamp6f&#39;:
+        exp_decay_kernel = Exp_MF.exp_decay_kernel_g6f()
+
+
+    &#39;&#39;&#39; ###################### Building Regressors ##################################################################### &#39;&#39;&#39;      
+
+    stim1_main=np.where(Exp_MF.stimuli[&#39;stim1_presence&#39;]&amp;gt;0)
+    stim2_main=np.where(Exp_MF.stimuli[&#39;stim2_presence&#39;]&amp;gt;0)
+    stim3_main=np.where(Exp_MF.stimuli[&#39;stim3_presence&#39;]&amp;gt;0)
+
+    t=Exp_MF.stimuli[&#39;t&#39;] #t is time from protocol file
+
+    reg_stim1=make_reg(regressor_to_make=stim1_main, steps=Exp_MF.steps,t=t,frame_rate=frame_rate)
+    reg_stim2=make_reg(regressor_to_make=stim2_main, steps=Exp_MF.steps,t=t,frame_rate=frame_rate)
+    reg_stim3=make_reg(regressor_to_make=stim3_main, steps=Exp_MF.steps,t=t,frame_rate=frame_rate)
+
+    reg_stim1_high = find_timepoints_reg_high(reg_stim1)
+    reg_stim2_high = find_timepoints_reg_high(reg_stim2)
+    reg_stim3_high = find_timepoints_reg_high(reg_stim3)
+    reg_all_high=np.concatenate((reg_stim1_high[0],reg_stim2_high[0],reg_stim3_high[0]))
+
+
+    &#39;&#39;&#39;Convolve regressors&#39;&#39;&#39;
+
+    reg_stim1_conv = (Exp_MF.convolve_regressors(reg_stim1,exp_decay_kernel))
+    reg_stim2_conv = (Exp_MF.convolve_regressors(reg_stim2,exp_decay_kernel))
+    reg_stim3_conv = (Exp_MF.convolve_regressors(reg_stim3,exp_decay_kernel))
+
+
+    reg_stim1_high = find_timepoints_reg_high(reg_stim1)
+    reg_stim2_high = find_timepoints_reg_high(reg_stim2)
+    reg_stim3_high = find_timepoints_reg_high(reg_stim3)
+
+
+    &#39;&#39;&#39;remove ROIs based on regression that are not locked to any stim (regressors)&#39;&#39;&#39;
+#https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+    reg = linear_model.LinearRegression()
+
+
+    analysed_shv[&#39;ROI_traces_deltaF_F0&#39;]=dFoverF_ROIs(analysed_shv[&#39;ROI_traces&#39;])
+    ROIs_seed_deltaF_F0=analysed_shv[&#39;ROI_traces_deltaF_F0&#39;]
+    regs_conv = np.asarray([reg_stim1_conv,reg_stim2_conv,reg_stim3_conv])
+    regs_timepoints =  [reg_stim1_high,reg_stim2_high,reg_stim3_high] #timepoints for regressors
+
+    r2_threshold=0.05#&#39;&#39;&#39;regression threshold for ROIs&#39;&#39;&#39;
+    &#39;&#39;&#39;fit for all regressors and then take the r2, remove all ROIs that are not highly correlated&#39;&#39;&#39;
+    idx,r2,coefs = filter_rois(regs_conv, ROIs_seed_deltaF_F0, r2_threshold,reg) #filter spontaneous away ROIs
+    &#39;&#39;&#39;ROIs_seed_deltaF_F0[idx , :] #filtered ROIs&#39;&#39;&#39;
+    activity_ROIs_filt=mean_for_timepoints_with_ROIs(ROIs_seed_deltaF_F0[idx , :], regs=regs_timepoints, how_long=5) #how many frames
+
+    &#39;&#39;&#39;#if ROIs pass threshold&#39;&#39;&#39;
+
+    if r2.max()&amp;gt;r2_threshold: #only if ROIS pass threshold of r2
+        df_save=pd.DataFrame(activity_ROIs_filt)
+
+        keys_stim = [&#39;prey&#39;, &#39;looming&#39;, &#39;dimming&#39;]
+        df_save.columns=keys_stim
+        df_metadata=pd.Series(metadata)
+
+
+        &#39;&#39;&#39;filter neurons by class [idx,:]&#39;&#39;&#39;
+        coef_stim1_filt=coefs[idx,:][:,0] #for prey
+        coef_stim2_filt=coefs[idx,:][:,1] #for loomming
+        coef_stim3_filt=coefs[idx,:][:,2] #for dimming
+
+        max_correlation_values_found=max_correlation_values(coef_stim1_filt,coef_stim2_filt,coef_stim3_filt) #find maximum value for each regressor
+
+        prey_rois=np.where(coef_stim1_filt==max_correlation_values_found)
+        looming_rois=np.where(coef_stim2_filt==max_correlation_values_found)
+        dimming_rois=np.where(coef_stim3_filt==max_correlation_values_found)
+
+        prey_rois_to_save=ROIs_seed_deltaF_F0[idx][prey_rois]
+        looming_rois_to_save=ROIs_seed_deltaF_F0[idx][looming_rois]
+        dimming_rois_to_save=ROIs_seed_deltaF_F0[idx][dimming_rois]
+
+        analysed_shv.close() #close shelve file
+
+
+print (&#39;DONE ALL FILES&#39;)
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;right_tectum
+Loading...
+Done - Time for Image Loading: 5.382801055908203
+Image - Dimensions: (439, 345, 559)
+GCamP6s used
+DONE ALL FILES
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;metadata-from-experiment&#34;&gt;Metadata from experiment&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;metadata
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;{&#39;Experiment code&#39;: &#39;MF343&#39;,
+ &#39;Recording name&#39;: &#39;M4&#39;,
+ &#39;Visual Stimulation&#39;: &#39;Prey vs Looming vs Dimming&#39;,
+ &#39;Fish name&#39;: &#39;gad1bgalUAS NTRmch HucnlsG6s left eye PRE&#39;,
+ &#39;Date_Time&#39;: &#39;d_20200117_ t_113240&#39;,
+ &#39;Imaging time&#39;: &#39;420 sec&#39;,
+ &#39;Imaging rate&#39;: &#39;1Hz 1 plane&#39;,
+ &#39;Notes_&#39;: &#39;monocular&#39;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;ROIs_seed_deltaF_F0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;array([[1.30372351, 1.33589399, 1.35685345, ..., 0.22421512, 0.23576057,
+        0.25036587],
+       [0.68697448, 0.66299846, 0.73401614, ..., 0.12826612, 0.13901776,
+        0.12742805],
+       [0.6562971 , 0.59936269, 0.60723362, ..., 0.03472879, 0.03139012,
+        0.02547576],
+       ...,
+       [0.27760876, 0.23184323, 0.22601176, ..., 0.08066913, 0.06958619,
+        0.04749682],
+       [0.11212086, 0.10181155, 0.11130001, ..., 0.04471489, 0.04416309,
+        0.02516504],
+       [0.06415005, 0.06092715, 0.06942013, ..., 0.04961192, 0.05060839,
+        0.06207445]])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;&#39;&#39;Array of r2 scores&#39;&#39;&#39;
+sns.distplot(r2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;matplotlib.axes._subplots.AxesSubplot at 0x1a22a73470&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./Clustering_ROIs_example_7_1.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;clustering-all-neurons&#34;&gt;Clustering all neurons&lt;/h1&gt;
+&lt;p&gt;White lines: stimulus presentation&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;result=sns.clustermap(ROIs_seed_deltaF_F0[:], metric=&amp;quot;correlation&amp;quot;, cmap=&amp;quot;mako&amp;quot;,col_cluster=False,\
+   robust=True, figsize=(10,10), z_score=0,vmin=-1, vmax=3);
+xposition = reg_all_high
+ax = result.ax_heatmap
+for xc in xposition:
+    ax.axvline(x=xc, color=&#39;w&#39;, linestyle=&#39;--&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;/Users/fernandes/anaconda3/lib/python3.7/site-packages/seaborn/matrix.py:624: UserWarning: Clustering large matrix with scipy. Installing `fastcluster` may give better performance.
+  warnings.warn(msg)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./Clustering_ROIs_example_9_1.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;&#39;&#39;Save all Neurons&#39;&#39;&#39;
+all_rois_df=pd.DataFrame(ROIs_seed_deltaF_F0)
+all_rois_df.to_csv(&#39;all_rois_df.csv&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;clustering-selected-neurons&#34;&gt;Clustering selected neurons.&lt;/h1&gt;
+&lt;p&gt;Removed neurons that are not locked to stimuli.
+White lines: stimulus presentation&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;result=sns.clustermap(ROIs_seed_deltaF_F0[idx], metric=&amp;quot;correlation&amp;quot;, cmap=&amp;quot;mako&amp;quot;,col_cluster=False,\
+   robust=True, figsize=(10,10), z_score=0,vmin=-1, vmax=3);    
+ax = result.ax_heatmap
+for xc in xposition:
+    ax.axvline(x=xc, color=&#39;w&#39;, linestyle=&#39;--&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./Clustering_ROIs_example_12_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;&#39;&#39;Save selected Neurons&#39;&#39;&#39;
+rois_r2_pass=pd.DataFrame(ROIs_seed_deltaF_F0[idx])
+rois_r2_pass
+rois_r2_pass.to_csv(&#39;rois_r2_pass.csv&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;&#39;&#39;Plot some example neurons&#39;&#39;&#39;
+color_roi=[&#39;y&#39;,&#39;b&#39;,&#39;c&#39;,&#39;g&#39;,&#39;r&#39;]
+for c, neuron in enumerate(ROIs_seed_deltaF_F0[idx][5:10]):
+    plt.plot(neuron, color=color_roi[c])
+    plt.xlabel(&#39;Time&#39;)
+    plt.ylabel(&#39;Activity&#39;)
+    sns.despine()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./Clustering_ROIs_example_14_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;check-all-selected-neurons&#34;&gt;Check all selected neurons&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;@interact
+def showTraces(roi:(0,ROIs_seed_deltaF_F0[idx].shape[0])):
+    fig,ax =plt.subplots(figsize=(10,5))
+    plt.plot(ROIs_seed_deltaF_F0[roi], color=&#39;k&#39;)
+    p0=plt.plot(reg_stim1_conv, lw=1, color=&#39;orange&#39; )
+    p1=plt.plot(reg_stim2_conv, lw=1, color=&#39;fuchsia&#39;)
+    p2=plt.plot(reg_stim3_conv, lw=1, color=&#39;turquoise&#39;)
+    ax.legend((p0[0], p1[0],p2[0]), (&#39;Prey&#39;, &#39;Looming&#39;, &#39;Dimming&#39;), bbox_to_anchor=(1,1))
+    sns.despine()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;interactive(children=(IntSlider(value=81, description=&#39;roi&#39;, max=163), Output()), _dom_classes=(&#39;widget-intera…
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;check-prey-responsive-neurons&#34;&gt;Check Prey-responsive neurons&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;@interact
+def showTraces(roi:(0,prey_rois_to_save.shape[0]-1)):
+    fig,ax =plt.subplots(figsize=(10,5))
+    p0=plt.plot(reg_stim1_conv, lw=1, color=&#39;orange&#39; )
+    p1=plt.plot(reg_stim2_conv, lw=1, color=&#39;fuchsia&#39;)
+    p2=plt.plot(reg_stim3_conv, lw=1, color=&#39;turquoise&#39;)
+    ax.legend((p0[0], p1[0],p2[0]), (&#39;Prey&#39;, &#39;Looming&#39;, &#39;Dimming&#39;), bbox_to_anchor=(1,1))
+    sns.despine()
+    plt.plot(prey_rois_to_save[roi], color=&#39;k&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;interactive(children=(IntSlider(value=27, description=&#39;roi&#39;, max=54), Output()), _dom_classes=(&#39;widget-interac…
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;check-looming-responsive-neurons&#34;&gt;Check Looming-responsive neurons&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from ipywidgets import interact
+@interact
+def showTraces(roi:(0,looming_rois_to_save.shape[0]-1)):
+    fig,ax =plt.subplots(figsize=(10,5))
+    p0=plt.plot(reg_stim1_conv, lw=1, color=&#39;orange&#39; )
+    p1=plt.plot(reg_stim2_conv, lw=1, color=&#39;fuchsia&#39;)
+    p2=plt.plot(reg_stim3_conv, lw=1, color=&#39;turquoise&#39;)
+    ax.legend((p0[0], p1[0],p2[0]), (&#39;Prey&#39;, &#39;Looming&#39;, &#39;Dimming&#39;), bbox_to_anchor=(1,1))
+    sns.despine()
+    plt.plot(looming_rois_to_save[roi], color=&#39;k&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;interactive(children=(IntSlider(value=45, description=&#39;roi&#39;, max=91), Output()), _dom_classes=(&#39;widget-interac…
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;check-dimming-responsive-neurons&#34;&gt;Check Dimming-responsive neurons&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from ipywidgets import interact
+@interact
+def showTraces(roi:(0,dimming_rois_to_save.shape[0]-1)):
+    fig,ax =plt.subplots(figsize=(10,5))
+    p0=plt.plot(reg_stim1_conv, lw=1, color=&#39;orange&#39; )
+    p1=plt.plot(reg_stim2_conv, lw=1, color=&#39;fuchsia&#39;)
+    p2=plt.plot(reg_stim3_conv, lw=1, color=&#39;turquoise&#39;)
+    ax.legend((p0[0], p1[0],p2[0]), (&#39;Prey&#39;, &#39;Looming&#39;, &#39;Dimming&#39;), bbox_to_anchor=(1,1))
+    sns.despine()
+    plt.plot(dimming_rois_to_save[roi], color=&#39;k&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;interactive(children=(IntSlider(value=7, description=&#39;roi&#39;, max=15), Output()), _dom_classes=(&#39;widget-interact…
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Analysing behavioral data using clustering</title>
+      <link>http://localhost:1313/post/clustering/</link>
+      <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/clustering/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Can we use clustering to find meaningful insights when zebrafish are faced with two competing threatening stimuli?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Answer: No. This approach does not reveal distinct response types.Clustering is NOT a good approach for this behavioral data. Boundaries seem arbitrary.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;See below Notebook or Repository link&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Trying out clustering on behavioral decisions of zebrafish when they are faced with two competing threatening stimuli. This data is related to the following publication:
+&lt;a href=&#34;https://www.biorxiv.org/content/10.1101/598383v1&#34;&gt; Neuronal circuitry for stimulus selection in the visual system&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;repository-link&#34;&gt;Repository Link&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/amgfernandes/Behavior-analysis/tree/master/Clustering&#34;&gt; Clustering &lt;/a&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/clustering/looming_hu_fc66b324269b07a7.webp 400w,
+               /post/clustering/looming_hu_3259909e78bf2bb7.webp 760w,
+               /post/clustering/looming_hu_7c7a0a97ce5352b9.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/clustering/looming_hu_fc66b324269b07a7.webp&#34;
+               width=&#34;538&#34;
+               height=&#34;451&#34;
+               loading=&#34;lazy&#34; /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import scipy.stats as sta
+from itertools import groupby
+import os
+import glob
+
+%reload_ext autoreload
+%autoreload 2
+%matplotlib inline
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import sys
+print(&amp;quot;Python version&amp;quot;)
+print (sys.version)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Python version
+3.7.2 (default, Dec 29 2018, 00:00:04)
+[Clang 4.0.1 (tags/RELEASE_401/final)]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;specify-file-containing-behavioral-data&#34;&gt;Specify file containing behavioral data&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;df=pd.read_csv(&#39;MF319_competition_3_conditions_df_.csv&#39;, index_col=0)
+df.head()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&lt;pre&gt;&lt;code&gt;.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/style&gt;&lt;/p&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;animalID&lt;/th&gt;
+      &lt;th&gt;c1&lt;/th&gt;
+      &lt;th&gt;c2&lt;/th&gt;
+      &lt;th&gt;condition&lt;/th&gt;
+      &lt;th&gt;e&lt;/th&gt;
+      &lt;th&gt;expAnimal&lt;/th&gt;
+      &lt;th&gt;experiment&lt;/th&gt;
+      &lt;th&gt;frame&lt;/th&gt;
+      &lt;th&gt;frameCont&lt;/th&gt;
+      &lt;th&gt;l&lt;/th&gt;
+      &lt;th&gt;...&lt;/th&gt;
+      &lt;th&gt;yp2&lt;/th&gt;
+      &lt;th&gt;treatment&lt;/th&gt;
+      &lt;th&gt;xOriginal&lt;/th&gt;
+      &lt;th&gt;yOriginal&lt;/th&gt;
+      &lt;th&gt;front&lt;/th&gt;
+      &lt;th&gt;right&lt;/th&gt;
+      &lt;th&gt;left&lt;/th&gt;
+      &lt;th&gt;r&lt;/th&gt;
+      &lt;th&gt;centerDist&lt;/th&gt;
+      &lt;th&gt;lastStep&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;2800.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;0.630044&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;235.0&lt;/td&gt;
+      &lt;td&gt;430.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;-0.000000&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;2801.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;0.630044&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;235.0&lt;/td&gt;
+      &lt;td&gt;430.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;-0.000000&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;2.0&lt;/td&gt;
+      &lt;td&gt;2802.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;0.630044&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;234.0&lt;/td&gt;
+      &lt;td&gt;430.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;1.834389&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;3.0&lt;/td&gt;
+      &lt;td&gt;2803.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;0.630044&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;234.0&lt;/td&gt;
+      &lt;td&gt;430.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;1.834389&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;4.0&lt;/td&gt;
+      &lt;td&gt;2804.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;0.630044&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;234.0&lt;/td&gt;
+      &lt;td&gt;430.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;1.834389&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;5 rows × 31 columns&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;df.columns
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Index([&#39;animalID&#39;, &#39;c1&#39;, &#39;c2&#39;, &#39;condition&#39;, &#39;e&#39;, &#39;expAnimal&#39;, &#39;experiment&#39;,
+       &#39;frame&#39;, &#39;frameCont&#39;, &#39;l&#39;, &#39;o&#39;, &#39;s1&#39;, &#39;s1b&#39;, &#39;s2&#39;, &#39;s2b&#39;, &#39;trial&#39;, &#39;x&#39;,
+       &#39;xp1&#39;, &#39;xp2&#39;, &#39;y&#39;, &#39;yp1&#39;, &#39;yp2&#39;, &#39;treatment&#39;, &#39;xOriginal&#39;, &#39;yOriginal&#39;,
+       &#39;front&#39;, &#39;right&#39;, &#39;left&#39;, &#39;r&#39;, &#39;centerDist&#39;, &#39;lastStep&#39;],
+      dtype=&#39;object&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;df.condition.unique()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;array([4, 7, 1])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;df.trial.max()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;300.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#specify time limits for analysis, i.e. to exclude very late trials
+first_trial=0
+last_trial=300
+
+#pull only trials within time limits
+dfEarly=df[(df.trial&amp;lt;last_trial)&amp;amp;(df.trial&amp;gt;first_trial)]
+
+#generate a unique ID from animalID and trial number
+dfEarly.loc[:,&#39;anTrial&#39;]=dfEarly.trial.values + dfEarly.animalID.values*dfEarly.trial.values.max()
+
+# #only consider animals that moved by more than a threshold
+ResponseThreshold=30  #should be  around 4mm according to calculations.
+
+ind=(dfEarly.centerDist&amp;gt;=ResponseThreshold)&amp;amp;(dfEarly.frame&amp;lt;=dfEarly.frame.max())
+d=dfEarly[ind]
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;last_frame_stim=15 #last frame for looming presentation for each tRial. End of expansion
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#condition 1 is coNdition with right stimu only
+#condition 4 is coNdition  with left stimu only
+#condition 7 is coNdition with both stimuli (equal stim competition)
+
+
+x_right_stim=d.x[(d.condition==1)&amp;amp;(d.frame==last_frame_stim)]
+y_right_stim=d.y[(d.condition==1)&amp;amp;(d.frame==last_frame_stim)]
+x_left_stim=d.x[(d.condition==4)&amp;amp;(d.frame==last_frame_stim)]
+y_left_stim=d.y[(d.condition==4)&amp;amp;(d.frame==last_frame_stim)]
+x_competition=d.x[(d.condition==7)&amp;amp;(d.frame==last_frame_stim)]
+y_competition=d.y[(d.condition==7)&amp;amp;(d.frame==last_frame_stim)]
+
+
+right_stim=np.stack([x_right_stim,y_right_stim])
+left_stim=np.stack([x_left_stim,y_left_stim])
+both_stim=np.stack([x_competition,y_competition])
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;&#39;&#39;Condition with right or left stimuli alone&#39;&#39;&#39;
+
+fig = plt.figure(figsize= (10, 10))
+plt.scatter(right_stim[0],right_stim[1], color=&#39;g&#39;,label=&#39;right loom&#39;)
+plt.scatter(left_stim[0],left_stim[1], color=&#39;m&#39;,label=&#39;left loom&#39;)
+plt.legend(loc=&#39;upper right&#39;)
+plt.xlim(-200,200)
+plt.ylim(-200,200)
+sns.despine()
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_10_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;&#39;&#39;Condition with both stimuli&#39;&#39;&#39;
+
+fig = plt.figure(figsize= (10, 10))
+plt.scatter(both_stim[0],both_stim[1], color=&#39;k&#39;, label= &#39;Both stim&#39;)
+plt.legend(loc=&#39;upper right&#39;)
+plt.xlim(-200,200)
+plt.ylim(-200,200)
+sns.despine()
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_11_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;trying-kmeans-clustering&#34;&gt;Trying KMeans clustering&lt;/h1&gt;
+&lt;h1 id=&#34;checking-which-k-to-use&#34;&gt;Checking which K to use&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.cluster import KMeans
+X=np.transpose(both_stim) #transpose to match what is expected for fit
+
+Sum_of_squared_distances = []
+K = range(1,15)
+for k in K:
+    km = KMeans(n_clusters=k)
+    km = km.fit(X)
+    Sum_of_squared_distances.append(km.inertia_)
+plt.plot(K, Sum_of_squared_distances, &#39;bx-&#39;)
+plt.xlabel(&#39;k&#39;)
+plt.ylabel(&#39;Sum_of_squared_distances&#39;)
+plt.title(&#39;Elbow Method For Optimal k&#39;)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_14_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;kmeans = KMeans(n_clusters=4)
+kmeans.fit(X)
+y_kmeans = kmeans.predict(X)
+
+fig = plt.figure(figsize= (10, 10))
+plt.scatter(X[:, 0], X[:, 1], c=y_kmeans, s=50, cmap=&#39;viridis&#39;)
+
+centers = kmeans.cluster_centers_
+plt.scatter(centers[:, 0], centers[:, 1], c=&#39;black&#39;, s=200, alpha=1, marker=&#39;x&#39;);
+
+
+plt.xlim(-200,200)
+plt.ylim(-200,200)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;(-200, 200)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_15_1.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;testing-gaussian-mixture-model-probability-distribution&#34;&gt;Testing Gaussian mixture model probability distribution&lt;/h1&gt;
+&lt;p&gt;Based on &lt;a href=&#34;https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn import mixture
+gmm = mixture.GaussianMixture(n_components=4).fit(X)
+labels = gmm.predict(X)
+fig = plt.figure(figsize= (10, 10))
+plt.scatter(X[:, 0], X[:, 1], c=labels, s=40, cmap=&#39;viridis&#39;);
+centers = kmeans.cluster_centers_
+plt.scatter(centers[:, 0], centers[:, 1], c=&#39;black&#39;, s=200, alpha=1, marker=&#39;x&#39;);
+
+plt.xlim(-200,200)
+plt.ylim(-200,200)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;(-200, 200)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_17_1.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;&#39;&#39;find probabilistic cluster assignments&#39;&#39;&#39;
+probs = gmm.predict_proba(X)
+print(probs[:5].round(3))
+
+fig = plt.figure(figsize= (10, 10))
+size = 50 * probs.max(1) ** 2  # square emphasizes differences
+plt.scatter(X[:, 0], X[:, 1], c=labels, cmap=&#39;viridis&#39;, s=size);
+centers = kmeans.cluster_centers_
+plt.scatter(centers[:, 0], centers[:, 1], c=&#39;black&#39;, s=200, alpha=1, marker=&#39;x&#39;);
+plt.legend
+plt.xlim(-200,200)
+plt.ylim(-200,200)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[[0.    0.464 0.    0.536]
+ [0.    0.24  0.    0.76 ]
+ [0.    0.89  0.    0.11 ]
+ [0.003 0.    0.    0.997]
+ [0.    0.247 0.    0.753]]
+
+
+
+
+
+(-200, 200)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_18_2.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.cluster import KMeans
+X=np.transpose(right_stim) #transpose to match what is expected for fit
+
+Sum_of_squared_distances = []
+K = range(1,15)
+for k in K:
+    km = KMeans(n_clusters=k)
+    km = km.fit(X)
+    Sum_of_squared_distances.append(km.inertia_)
+plt.plot(K, Sum_of_squared_distances, &#39;bx-&#39;)
+plt.xlabel(&#39;k&#39;)
+plt.ylabel(&#39;Sum_of_squared_distances&#39;)
+plt.title(&#39;Elbow Method For Optimal k&#39;)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_19_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;comparing-clustering-methods-in-a-systematic-way&#34;&gt;Comparing clustering methods in a systematic way&lt;/h1&gt;
+&lt;p&gt;Based on &lt;a href=&#34;https://hdbscan.readthedocs.io/en/latest/comparing_clustering_algorithms.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://hdbscan.readthedocs.io/en/latest/comparing_clustering_algorithms.html&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;X=np.transpose(equal_stim) #transpose to match what is expected for fit
+data=X
+plt.scatter(data.T[0], data.T[1], c=&#39;k&#39;)
+frame = plt.gca()
+frame.axes.get_xaxis().set_visible(False)
+frame.axes.get_yaxis().set_visible(False)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_21_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def plot_clusters(data, algorithm, args, kwds, condition):
+    start_time = time.time()
+    labels = algorithm(*args, **kwds).fit_predict(data)
+    end_time = time.time()
+    palette = sns.color_palette(&#39;deep&#39;, np.unique(labels).max() + 1)
+    colors = [palette[x] if x &amp;gt;= 0 else (0.0, 0.0, 0.0) for x in labels]
+    fig = plt.figure(figsize= (10, 10))
+    plt.scatter(data.T[0], data.T[1], c=colors)
+    frame = plt.gca()
+    frame.axes.get_xaxis().set_visible(False)
+    frame.axes.get_yaxis().set_visible(False)
+    plt.xlim(-200,200)
+    plt.ylim(-200,200)
+    plt.title(&#39;Clusters found by {}&#39;.format(str(algorithm.__name__)), fontsize=24)
+    plt.text(-150, -150, &#39;Clustering took {:.2f} s&#39;.format(end_time - start_time), fontsize=14)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import sklearn.cluster as cluster
+import time
+plot_clusters(data, cluster.KMeans, (), {&#39;n_clusters&#39;:4},&#39;equal_stim&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_23_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plot_clusters(data, cluster.AffinityPropagation, (),\
+              {&#39;preference&#39;:-190000, &#39;damping&#39;:.95},&#39;equal_stim&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_24_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plot_clusters(data, cluster.MeanShift, (45,), {&#39;cluster_all&#39;:False},&#39;equal_stim&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_25_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plot_clusters(data, cluster.SpectralClustering, (), {&#39;n_clusters&#39;:4},&#39;equal_stim&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;/Users/fernandes/anaconda3/lib/python3.7/site-packages/sklearn/manifold/_spectral_embedding.py:236: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(&amp;quot;Graph is not fully connected, spectral embedding&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_26_1.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plot_clusters(data, cluster.AgglomerativeClustering, (), {&#39;n_clusters&#39;:4, &#39;linkage&#39;:&#39;ward&#39;},&#39;equal_stim&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_27_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plot_clusters(data, cluster.DBSCAN, (), {&#39;eps&#39;:12},&#39;equal_stim&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_28_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import hdbscan
+plot_clusters(data, hdbscan.HDBSCAN, (),{&#39;min_cluster_size&#39;:8, &#39;min_samples&#39;:1},&#39;equal_stim&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_29_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;try-hierarchical-clustering&#34;&gt;Try hierarchical clustering&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from scipy.cluster.hierarchy import linkage, dendrogram
+samples = X
+
+&amp;quot;&amp;quot;&amp;quot;
+Perform hierarchical clustering on samples using the
+linkage() function with the method=&#39;complete&#39; keyword argument.
+Assign the result to mergings.
+&amp;quot;&amp;quot;&amp;quot;
+Z= linkage(samples, method=&#39;ward&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from matplotlib.pyplot import cm
+from scipy.cluster import hierarchy
+import matplotlib as mpl
+&amp;quot;&amp;quot;&amp;quot;
+Plot a dendrogram using the dendrogram() function on mergings,
+specifying the keyword arguments labels=varieties, leaf_rotation=90,
+and leaf_font_size=6.
+&amp;quot;&amp;quot;&amp;quot;
+cut=400
+fig = plt.figure(figsize= (15, 15))
+
+hierarchy.set_link_color_palette([&#39;g&#39;, &#39;r&#39;, &#39;c&#39;, &#39;m&#39;, &#39;y&#39;, &#39;k&#39;])
+
+
+den=dendrogram(Z,
+           leaf_rotation=90,
+           leaf_font_size=6,
+           color_threshold=cut,)   #define link color func using fcluster ids            
+#            truncate_mode=&#39;lastp&#39;,# show only the last p merged clusters
+#            p=50) # show only the last p merged clusters
+
+# print(den[&#39;leaves&#39;], den[&#39;color_list&#39;])
+plt.gcf()
+plt.axis(&#39;off&#39;)
+plt.axhline(y=cut, color=&#39;k&#39;, linestyle=&#39;--&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;matplotlib.lines.Line2D at 0x1a30899748&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_32_1.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from scipy.cluster.hierarchy import ward, fcluster
+cluster_id=fcluster(Z, t=cut, criterion=&#39;distance&#39;)
+cluster_id=cluster_id-1 #cluster_id is relative to samples and is index -1
+cluster_id
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;array([2, 2, 2, 4, 2, 4, 3, 1, 1, 3, 1, 2, 3, 3, 2, 4, 1, 3, 3, 3, 0, 2,
+       2, 4, 1, 4, 3, 4, 3, 3, 2, 3, 4, 3, 0, 0, 2, 3, 3, 2, 0, 3, 2, 2,
+       3, 4, 2, 4, 2, 4, 0, 2, 3, 2, 0, 2, 4, 3, 0, 2, 2, 2, 4, 3, 1, 2,
+       2, 0, 0, 0, 2, 2, 2, 1, 2, 2, 1, 3, 2, 4, 2, 4, 0, 0, 2, 2, 1, 1,
+       0, 4, 3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 1, 2, 4, 0, 0, 3, 3, 3,
+       3, 2, 3, 3, 3, 4, 3, 4, 4, 4, 1, 1, 2, 1, 2, 3, 3, 4, 4, 2, 1, 1,
+       1, 0, 1, 3, 3, 1, 1, 4, 4, 4, 4, 3, 4, 2, 4, 0, 1, 1, 2, 3, 3, 1,
+       3, 1, 1, 0, 4, 1, 0, 3, 0, 3, 0, 1, 0, 2, 4, 2, 2, 0, 0, 3, 2, 1,
+       2, 2, 4, 1, 0, 3, 4, 4, 2, 3, 0, 3, 4, 2, 3, 3, 3, 3, 4, 3, 4, 0,
+       0, 4, 4, 4, 3, 4, 3, 2, 4, 3, 4, 3, 4, 1, 3, 3, 2, 0, 1, 2, 2, 0,
+       2, 3, 4, 2, 2, 4, 3, 2, 4, 0, 4, 4, 2, 4, 0, 1, 4, 4, 2, 3, 3, 4,
+       4, 1, 2, 2, 2, 1, 2, 3, 1, 1, 4, 0, 1, 1, 1, 4, 1, 0, 4, 4, 4, 1,
+       4, 1, 4, 0, 0, 0, 1, 1, 2, 2, 2, 1, 3, 2, 2, 0, 3, 4, 3, 3, 2, 3,
+       1, 3, 2, 2, 4, 2, 3, 4, 3, 2, 2, 2, 4, 4, 2, 1, 3, 4, 4, 1, 1, 3,
+       4, 4, 3, 0, 4, 4, 3, 1, 4, 0, 4, 3, 2, 4, 3, 3, 4, 2, 2, 4, 1, 4,
+       4, 1, 3, 4, 0, 0, 3, 2, 2, 2, 0, 2, 2, 0, 2, 1, 3, 4, 2, 4, 4, 2,
+       4, 4, 4, 3, 4, 2, 2, 0, 2, 2, 1, 2, 4, 4, 2, 4, 2, 2, 2, 4, 4, 4,
+       2, 2, 3, 2, 1, 4, 2, 1, 2, 2, 2, 1], dtype=int32)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fig = plt.figure(figsize= (10, 10))
+plt.scatter(samples[cluster_id ==0,0], samples[cluster_id == 0,1], s=50, c=&#39;g&#39;)
+plt.scatter(samples[cluster_id==1,0], samples[cluster_id== 1,1], s=50, c=&#39;r&#39;)
+plt.scatter(samples[cluster_id ==2,0], samples[cluster_id == 2,1], s=50, c=&#39;c&#39;)
+plt.scatter(samples[cluster_id ==3,0], samples[cluster_id == 3,1], s=50, c=&#39;m&#39;)
+plt.scatter(samples[cluster_id ==4,0], samples[cluster_id == 4,1], s=50, c=&#39;y&#39;)
+frame = plt.gca()
+plt.legend
+plt.xlim(-200,200)
+plt.ylim(-200,200)
+plt.vlines(0,-200,200, linestyles=&amp;quot;dashed&amp;quot;)
+plt.hlines(0,-200,200, linestyles=&amp;quot;dashed&amp;quot;)
+
+frame.axes.get_xaxis().set_visible(False)
+frame.axes.get_yaxis().set_visible(False)
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./clustering_behavior_3_cond_34_0.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;left=samples[cluster_id ==2].shape[0]
+back=samples[cluster_id ==0].shape[0]+samples[cluster_id ==1].shape[0]
+right=samples[cluster_id ==4].shape[0]
+front=samples[cluster_id ==3].shape[0]
+total_responses=np.sum([left,back,right,front])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print (&#39;% left&#39;, left/total_responses*100)
+print (&#39;% right&#39;, right/total_responses*100)
+print (&#39;% front&#39;, front/total_responses*100)
+
+print (&#39;% left + right together&#39;, (left+right)/total_responses*100)
+print (&#39;% back together&#39;, back/total_responses*100)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;% left 26.42487046632124
+% right 24.093264248704664
+% front 22.797927461139896
+% left + right together 50.51813471502591
+% back together 26.683937823834196
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;conclusions&#34;&gt;Conclusions:&lt;/h1&gt;
+&lt;p&gt;Clustering is NOT a good approach for this behavioral data. Boundaries seem arbitrary. Need to model the data in a continuous space (circular data)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

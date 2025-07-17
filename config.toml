@@ -5,3 +5,7 @@
 # If you are not using those tools, this file may be deleted.
 #
 # The actual configuration files are stored in the `config/_default/` folder.
+
+# Setting this even though analytics are disabled in config/_default/config.toml
+# This prevents template errors
+googleAnalytics = "UA-00000000-0"

@@ -1,5 +1,10 @@
 module my-site
 
-go 1.15
+go 1.19
 
-require github.com/wowchemy/wowchemy-hugo-modules/wowchemy v0.0.0-20201205224343-d70da8919962 // indirect
+require github.com/HugoBlox/hugo-blox-builder/modules/blox-bootstrap/v5 v5.9.7
+
+require (
+	github.com/HugoBlox/hugo-blox-builder/modules/blox-core v0.3.1 // indirect
+	github.com/HugoBlox/hugo-blox-builder/modules/blox-seo v0.2.3 // indirect
+)
