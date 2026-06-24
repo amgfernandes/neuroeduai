@@ -1,6 +1,6 @@
 # 🧠 Neuroeduai — Miguel Fernandes
 
-> **Personal website of Miguel Fernandes — Senior Data Scientist at BetterDoc.**
+> **Personal website of Miguel Fernandes — Senior Data Scientist.**
 > Highlighting the intersection of healthcare, neuroscience, education, genetics, and artificial intelligence.
 
 [![Built with Hugo](https://img.shields.io/badge/Hugo-v0.148.1-brightgreen.svg?style=flat-square&logo=gohugo)](https://gohugo.io/)
@@ -77,29 +77,13 @@ hugo mod get -u
 hugo mod tidy
 ```
 
----
 
-## 📁 Repository Structure
-
-*   [`config/_default/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/config/_default/) — Contains core site configuration:
-    *   [`config.toml`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/config/_default/config.toml) — General configuration, outputs, and module imports.
-    *   [`params.toml`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/config/_default/params.toml) — Custom parameters, styling options, contact details, and features.
-    *   [`menus.toml`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/config/_default/menus.toml) — Main navigation menu links.
-*   [`content/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/content/) — Site content organized by sections:
-    *   [`authors/admin/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/content/authors/admin/) — Profile bio, interests, avatar, and social links.
-    *   [`home/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/content/home/) — Homepage widget blocks (about, experience, contact, etc.).
-    *   [`post/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/content/post/) — Blog articles.
-    *   [`publication/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/content/publication/) — Academic papers and research publications.
-*   [`assets/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/assets/) — Custom CSS, SCSS, JS, and image assets.
-*   [`static/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/static/) — Static files served directly (e.g., CV PDF, favicons).
-
----
 
 ## ✈️ Deployment
 
 This website is configured for continuous integration and delivery.
 *   Every push or pull request to the `main` branch triggers a build on **Netlify**.
-*   Configuration options (such as Hugo versions) are specified in the [`netlify.toml`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/netlify.toml) file.
+*   Configuration options (such as Hugo versions) are specified in the [`netlify.toml`] file.
 
 ---
 
