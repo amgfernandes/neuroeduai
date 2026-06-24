@@ -1,82 +1,109 @@
-# My personal website. 
+# 🧠 Neuroeduai — Miguel Fernandes
 
-## Website is hosted on Github and build using the Hugo framework (static site generator written in Go).See below for details
+> **Personal website of Miguel Fernandes — Senior Data Scientist at BetterDoc.**
+> Highlighting the intersection of healthcare, neuroscience, education, genetics, and artificial intelligence.
 
-To use:
-- make changes 
-- run command `hugo server`
-- commit changes to repo
+[![Built with Hugo](https://img.shields.io/badge/Hugo-v0.148.1-brightgreen.svg?style=flat-square&logo=gohugo)](https://gohugo.io/)
+[![Framework: Hugo Blox](https://img.shields.io/badge/Framework-Hugo%20Blox-blue.svg?style=flat-square)](https://hugoblox.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE.md)
 
+---
 
-<!--<p align="center"><a href="https://wowchemy.com" target="_blank" rel="noopener"><img src="https://wowchemy.com/img/logo_200px.png" alt="Wowchemy Website Builder"></a></p>-->
+## 🌐 Overview
 
-## [Wowchemy](https://wowchemy.com): the website builder for [Hugo](https://gohugo.io)
+This is the source code repository for [Neuroeduai](https://www.neuroeduai.com/), the personal website and academic portfolio of **Miguel Fernandes**.
 
-### The Page Builder to Easily Create Professional Websites ✏️ 📰 🚀
+The website is designed to share insights and research across:
+*   🏥 **Healthcare & Medical Treatment Optimization**
+*   🧠 **Neuroscience & Cognitive Science**
+*   🎓 **Education & Knowledge Empowerment**
+*   📊 **Data Science (AI / Machine Learning / Deep Learning)**
+*   🧬 **Genetics & Life Sciences**
 
-**Create _any_ kind of website for free with Wowchemy. Write using Markdown, Jupyter, or RStudio. Choose a beautiful template, color theme, and font. Build anything with the Page Builder - over 50 _widgets_, _themes_, and _language packs_ included!**
+---
 
-[Check out the latest **demos**](https://wowchemy.com/templates/) of what you'll get in less than 10 minutes, or [view the **showcase**](https://wowchemy.com/user-stories/) of personal, project, and business sites.
+## 🛠️ Built With
 
-- 👉 [**Get Started**](https://wowchemy.com/docs/install/)
-- 📚 [View the **documentation**](https://wowchemy.com/docs/)
-- 💬 [Chat with the **Wowchemy community**](https://discord.gg/z8wNYzb) or [**Hugo community**](https://discourse.gohugo.io)
-- 🐦 Twitter: [@wowchemy](https://twitter.com/wowchemy) [@GeorgeCushen](https://twitter.com/GeorgeCushen) [#MadeWithWowchemy](https://twitter.com/search?q=(%23MadeWithWowchemy%20OR%20%23MadeWithAcademic)&src=typed_query)
-- 💡 [Request a **feature** or report a **bug** for _Wowchemy_](https://github.com/wowchemy/wowchemy-hugo-modules/issues)
-- ⬆️ **Updating Wowchemy?** View the [Update Guide](https://wowchemy.com/docs/update/) and [Release Notes](https://wowchemy.com/updates/)
+*   **Static Site Generator:** [Hugo](https://gohugo.io/) (Extended Edition)
+*   **Engine & Theme:** [Hugo Blox Builder](https://hugoblox.com/) (formerly *Wowchemy*) — a modular, block-based website builder.
+*   **Hosting & Deployment:** Automated builds on [Netlify](https://www.netlify.com/).
 
-## Crowd-funded open-source software
+---
 
-To help us develop this template and software sustainably under the MIT license, we ask all individuals and businesses that use it to help support its ongoing maintenance and development via sponsorship.
+## 🚀 Local Development
 
+Follow these steps to preview and build the website locally.
 
-## Ecosystem
+### 📋 Prerequisites
 
-* **[Hugo Academic CLI](https://github.com/wowchemy/hugo-academic-cli/):** Automatically import academic publications from BibTeX
-* **[Hugo Assistant](https://github.com/sourcethemes/hugo-assistant):** Scripts to help migrate content to new versions of Hugo
+Ensure you have the **Hugo Extended Edition** installed. You can install it on macOS using Homebrew:
 
+```bash
+brew install hugo
+```
 
-**Key features:**
+To verify your installation:
 
-- **Page builder** - Create *anything* with [**widgets**](https://wowchemy.com/docs/page-builder/) and [**elements**](https://wowchemy.com/docs/writing-markdown-latex/)
-- **Edit any type of content** - Blog posts, publications, talks, slides, projects, and more!
-- **Create content** in [**Markdown**](https://wowchemy.com/docs/writing-markdown-latex/), [**Jupyter**](https://wowchemy.com/docs/import/jupyter/), or [**RStudio**](https://wowchemy.com/docs/install-locally/)
-- **Plugin System** - Fully customizable [**color** and **font themes**](https://wowchemy.com/templates/)
-- **Display Code and Math** - Code highlighting and [LaTeX math](https://en.wikibooks.org/wiki/LaTeX/Mathematics) supported
-- **Integrations** - [Google Analytics](https://analytics.google.com), [Disqus commenting](https://disqus.com), Maps, Contact Forms, and more!
-- **Beautiful Site** - Simple and refreshing one page design
-- **Industry-Leading SEO** - Help get your website found on search engines and social media
-- **Media Galleries** - Display your images and videos with captions in a customizable gallery
-- **Mobile Friendly** - Look amazing on every screen with a mobile friendly version of your site
-- **Multi-language** - 15+ language packs including English, 中文, and Português
-- **Multi-user** - Each author gets their own profile page
-- **Privacy Pack** - Assists with GDPR
-- **Stand Out** - Bring your site to life with animation, parallax backgrounds, and scroll effects
-- **One-Click Deployment** - No servers. No databases. Only files.
+```bash
+hugo version
+```
 
-## Themes
+### 💻 Running the Development Server
 
-Wowchemy comes with **automatic day (light) and night (dark) mode** built-in. Alternatively, click the moon icon in the top right of one of the [Demos](https://wowchemy.com/templates/) to set your preferred mode!
+Start the Hugo development server with drafts and future-dated posts enabled:
 
-Choose a stunning theme for your site and [customize it](https://wowchemy.com/docs/customization/#custom-theme) to your liking:
+```bash
+hugo server -D
+```
 
-[![Themes](https://raw.githubusercontent.com/wowchemy/wowchemy-hugo-modules/master/themes.png)](https://wowchemy.com/templates/)
+By default, the server will watch for changes and rebuild the site automatically. 
+Open [http://localhost:1313](http://localhost:1313) in your browser to view the site.
 
-[Browse more templates and themes...](https://wowchemy.com/templates/)
+---
 
-## The Future of Technical Content Writing
+## 📦 Managing Dependencies (Hugo Blox Builder)
 
-[![Writing technical content](https://wowchemy.com/img/docs/writing-technical-content.gif)](https://academic-demo.netlify.app/post/writing-technical-content/)
+The project leverages Hugo modules for the underlying engine. To keep the framework modules up-to-date:
 
-## Join the community
+### Update to the Latest Version
 
-Feel free to *star* the project on [Github](https://github.com/wowchemy/wowchemy-hugo-modules), [join the community](https://discord.gg/z8wNYzb) on Discord, and follow [@wowchemy](https://twitter.com/wowchemy) on Twitter to be the first to hear about new features.
+```bash
+hugo mod get -u
+```
 
-## License
+### Clean Up Module Cache
 
-Copyright 2016-present [George Cushen](https://georgecushen.com).
+```bash
+hugo mod tidy
+```
 
-Released under the [MIT](https://github.com/wowchemy/wowchemy-hugo-modules/blob/master/LICENSE.md) license.
+---
 
-[![Analytics](https://ga-beacon.appspot.com/UA-78646709-2/wowchemy-hugo-modules/readme?pixel)](https://github.com/igrigorik/ga-beacon)
+## 📁 Repository Structure
 
+*   [`config/_default/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/config/_default/) — Contains core site configuration:
+    *   [`config.toml`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/config/_default/config.toml) — General configuration, outputs, and module imports.
+    *   [`params.toml`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/config/_default/params.toml) — Custom parameters, styling options, contact details, and features.
+    *   [`menus.toml`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/config/_default/menus.toml) — Main navigation menu links.
+*   [`content/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/content/) — Site content organized by sections:
+    *   [`authors/admin/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/content/authors/admin/) — Profile bio, interests, avatar, and social links.
+    *   [`home/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/content/home/) — Homepage widget blocks (about, experience, contact, etc.).
+    *   [`post/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/content/post/) — Blog articles.
+    *   [`publication/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/content/publication/) — Academic papers and research publications.
+*   [`assets/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/assets/) — Custom CSS, SCSS, JS, and image assets.
+*   [`static/`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/static/) — Static files served directly (e.g., CV PDF, favicons).
+
+---
+
+## ✈️ Deployment
+
+This website is configured for continuous integration and delivery.
+*   Every push or pull request to the `main` branch triggers a build on **Netlify**.
+*   Configuration options (such as Hugo versions) are specified in the [`netlify.toml`](file:///Users/miguel.fernandes/Documents/Github_BetterDoc_mfernandes3/neuroeduai/netlify.toml) file.
+
+---
+
+## 📄 License
+
+Code is licensed under the [MIT License](LICENSE.md).
+Content and publications are copyright to their respective authors/publishers.

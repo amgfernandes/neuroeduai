@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Clustering | Neuroeduai</title>
-    <link>http://localhost:1313/tag/clustering/</link>
-      <atom:link href="http://localhost:1313/tag/clustering/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:52369/tag/clustering/</link>
+      <atom:link href="http://localhost:52369/tag/clustering/index.xml" rel="self" type="application/rss+xml" />
     <description>Clustering</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 25 Jun 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png</url>
+      <url>http://localhost:52369/media/icon_hu_1b4bcfdf7d67b990.png</url>
       <title>Clustering</title>
-      <link>http://localhost:1313/tag/clustering/</link>
+      <link>http://localhost:52369/tag/clustering/</link>
     </image>
     
     <item>
       <title>Imaging analysis of neuronal activity</title>
-      <link>http://localhost:1313/post/neuronal_imaging/</link>
+      <link>http://localhost:52369/post/neuronal_imaging/</link>
       <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/neuronal_imaging/</guid>
+      <guid>http://localhost:52369/post/neuronal_imaging/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Can we find identify functionally distinct neurons by using clustering and linear regression?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Answer: Yes. This approach reveals functionally distinct neuronal classes. See below Notebook or Repository link&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;repository-link&#34;&gt;Repository Link&lt;/h2&gt;
@@ -406,9 +406,9 @@ def showTraces(roi:(0,dimming_rois_to_save.shape[0]-1)):
     
     <item>
       <title>Analysing behavioral data using clustering</title>
-      <link>http://localhost:1313/post/clustering/</link>
+      <link>http://localhost:52369/post/clustering/</link>
       <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/clustering/</guid>
+      <guid>http://localhost:52369/post/clustering/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Can we use clustering to find meaningful insights when zebrafish are faced with two competing threatening stimuli?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Answer: No. This approach does not reveal distinct response types.Clustering is NOT a good approach for this behavioral data. Boundaries seem arbitrary.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;See below Notebook or Repository link&lt;/strong&gt;&lt;/p&gt;
@@ -440,7 +440,7 @@ def showTraces(roi:(0,dimming_rois_to_save.shape[0]-1)):
                /post/clustering/looming_hu_fc66b324269b07a7.webp 400w,
                /post/clustering/looming_hu_3259909e78bf2bb7.webp 760w,
                /post/clustering/looming_hu_7c7a0a97ce5352b9.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/clustering/looming_hu_fc66b324269b07a7.webp&#34;
+               src=&#34;http://localhost:52369/post/clustering/looming_hu_fc66b324269b07a7.webp&#34;
                width=&#34;538&#34;
                height=&#34;451&#34;
                loading=&#34;lazy&#34; /&gt;&lt;/div&gt;
