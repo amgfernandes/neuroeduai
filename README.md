@@ -1,6 +1,6 @@
 # 🧠 Neuroeduai — Miguel Fernandes
 
-> **Personal website of Miguel Fernandes — Senior Data Scientist at BetterDoc.**
+> **Personal website of Miguel Fernandes — Senior Data Scientist.**
 > Highlighting the intersection of healthcare, neuroscience, education, genetics, and artificial intelligence.
 
 [![Built with Hugo](https://img.shields.io/badge/Hugo-v0.148.1-brightgreen.svg?style=flat-square&logo=gohugo)](https://gohugo.io/)
