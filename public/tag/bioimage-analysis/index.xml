@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bioimage Analysis | Neuroeduai</title>
-    <link>http://localhost:1313/tag/bioimage-analysis/</link>
-      <atom:link href="http://localhost:1313/tag/bioimage-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:52369/tag/bioimage-analysis/</link>
+      <atom:link href="http://localhost:52369/tag/bioimage-analysis/index.xml" rel="self" type="application/rss+xml" />
     <description>Bioimage Analysis</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 08 Sep 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu_1b4bcfdf7d67b990.png</url>
+      <url>http://localhost:52369/media/icon_hu_1b4bcfdf7d67b990.png</url>
       <title>Bioimage Analysis</title>
-      <link>http://localhost:1313/tag/bioimage-analysis/</link>
+      <link>http://localhost:52369/tag/bioimage-analysis/</link>
     </image>
     
     <item>
       <title>Introduction to Bioimage analysis for Master of Science in Neurosciences</title>
-      <link>http://localhost:1313/post/introduction-to-bioimage-analysis-/</link>
+      <link>http://localhost:52369/post/introduction-to-bioimage-analysis-/</link>
       <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/introduction-to-bioimage-analysis-/</guid>
+      <guid>http://localhost:52369/post/introduction-to-bioimage-analysis-/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Introduction to Bioimage analysis for Master of Science (M.Sc.) in Neurosciences.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;See repository for details&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;See below Repository link&lt;/strong&gt;&lt;/p&gt;
